@@ -16,11 +16,12 @@
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="theme-color" content="#0a7cff">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
     <header>
         <div class="logo-container">
-            <img src="images/kgc-logo.png" alt="KAKU GARAGE COMPANY Logo" class="logo-img">
             <h1>KAKU GARAGE COMPANY</h1>
         </div>
         
@@ -38,6 +39,12 @@
                 <li><a href="#buy-dream" class="nav-button">Buy Your Dream</a></li>
                 <li><a href="#inquire" class="nav-button">Inquire</a></li>
                 <li><a href="#sell-vehicle" class="nav-button">Sell Your Vehicle</a></li>
+                <li><a href="privacy.html" class="nav-button">Privacy</a></li>
+                <li>
+                    <a href="downloads/KGC-App.apk" class="nav-button download-app" title="Download the app for a better experience">
+                        <img src="images/kgc-logo.png" alt="App Icon" class="btn-icon"> Download App
+                    </a>
+                </li>
             </ul>
         </nav>
     </header>
@@ -49,6 +56,9 @@
             <div class="hero-buttons">
                 <a href="#buy-dream" class="btn primary">Buy Your Dream</a>
                 <a href="#sell-vehicle" class="btn secondary">Sell Your Vehicle</a>
+                <a href="downloads/KGC-App.apk" class="btn primary download-app-hero" title="Download the app for a better connection">
+                    <img src="images/kgc-logo.png" alt="App Icon" class="btn-icon"> Download App
+                </a>
             </div>
         </div>
     </section>
@@ -77,6 +87,10 @@
             <div class="search-box">
                 <input type="text" id="search-input" placeholder="Search vehicles...">
                 <button id="search-btn"><i class="fas fa-search"></i></button>
+            </div>
+            <div class="filter-group">
+                <input type="checkbox" id="show-sold-checkbox">
+                <label for="show-sold-checkbox">Show Sold Vehicles</label>
             </div>
         </div>
 
@@ -176,7 +190,7 @@
         <h2 class="section-title">About Us</h2>
         <div class="about-content">
             <div class="about-image">
-                <img src="images/about-image.jpg" alt="Our Dealership">
+                <img src="https://via.placeholder.com/400x300.png?text=Kaku+Garage+Showroom" alt="Our Dealership">
             </div>
             <div class="about-text">
                 <h3>Welcome to KAKU GARAGE COMPANY</h3>
@@ -354,6 +368,18 @@
                     <input type="email" placeholder="Your Email Address" required>
                     <button type="submit" class="btn primary">Subscribe</button>
                 </form>
+            </div>
+            <div class="footer-app">
+                <h3>Get the App</h3>
+                <p>Download the app for a faster, smoother experience.</p>
+                <div class="store-buttons">
+                    <a href="downloads/KGC-App.apk" class="btn primary store-btn" title="Download Android APK for testing">
+                        <img src="images/kgc-logo.png" alt="App Icon" class="btn-icon"> Download Android APK
+                    </a>
+                    <a href="#" class="btn secondary store-btn disabled" title="App Store link coming soon">
+                        Coming soon on App Store
+                    </a>
+                </div>
             </div>
         </div>
         <div class="footer-bottom">

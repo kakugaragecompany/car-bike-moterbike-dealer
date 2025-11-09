@@ -1,5 +1,21 @@
 // Sample vehicle data
 const vehiclesData = [
+    // New listing: Audi 2013, 2nd owner, Petrol, MH registration
+    {
+        id: 10,
+        type: 'car',
+        name: 'Audi A4 (2013)',
+        price: '₹4,00,000',
+        year: 2013,
+        mileage: '13 km/l',
+        transmission: 'Automatic',
+        fuel: 'Petrol',
+        owner: '2nd owner',
+        registration: 'MH registration',
+        condition: 'Good and clean condition',
+        sold: false,
+        image: 'https://images.pexels.com/photos/1402787/pexels-photo-1402787.jpeg?auto=compress&cs=tinysrgb&w=800'
+    },
     {
         id: 1,
         type: 'car',
@@ -126,12 +142,18 @@ function displayVehicles(vehicles) {
         return;
     }
     
+    const showSold = document.getElementById('show-sold-checkbox').checked;
+
     vehicles.forEach(vehicle => {
+        if (!showSold && vehicle.sold) {
+            return;
+        }
         const vehicleCard = document.createElement('div');
         vehicleCard.className = 'vehicle-card';
-        
+
         vehicleCard.innerHTML = `
             <div class="vehicle-image">
+                ${vehicle.sold ? '<div class="sold-badge">Sold</div>' : ''}
                 <img src="${vehicle.image}" alt="${vehicle.name}">
             </div>
             <div class="vehicle-details">
@@ -152,14 +174,26 @@ function displayVehicles(vehicles) {
                         <span>${vehicle.transmission}</span>
                     </div>
                 </div>
+                <div class="vehicle-meta">
+                    ${vehicle.owner ? `<span class="meta-pill">${vehicle.owner}</span>` : ''}
+                    ${vehicle.fuel ? `<span class="meta-pill">${vehicle.fuel}</span>` : ''}
+                    ${vehicle.registration ? `<span class="meta-pill">${vehicle.registration}</span>` : ''}
+                    ${vehicle.condition ? `<div class="meta-note">${vehicle.condition}</div>` : ''}
+                </div>
                 <div class="vehicle-actions">
-                    <a href="#contact" class="btn primary">Inquire Now</a>
-                    <button class="btn secondary" onclick="showVehicleDetails(${vehicle.id})">Details</button>
+                    ${vehicle.sold ? '<span class="btn secondary disabled">Sold</span>' : '<a href="#contact" class="btn primary">Inquire Now</a>'}
+                    <button class="btn secondary details-btn" data-id="${vehicle.id}">Details</button>
                 </div>
             </div>
         `;
-        
+
         vehiclesContainer.appendChild(vehicleCard);
+        const detailsBtn = vehicleCard.querySelector('.details-btn');
+        if (detailsBtn) {
+            detailsBtn.addEventListener('click', () => {
+                showVehicleDetails(vehicle.id);
+            });
+        }
     });
 }
 
@@ -230,51 +264,104 @@ function setupEventListeners() {
     
     // Contact form submission
     if (contactForm) {
-        contactForm.addEventListener('submit', (e) => {
+        contactForm.addEventListener('submit', async (e) => {
             e.preventDefault();
+            // Honeypot
+            const hp = document.getElementById('website');
+            if (hp && hp.value) return;
             const formData = new FormData(contactForm);
             const formValues = Object.fromEntries(formData.entries());
-            
-            // In a real app, you would send this data to a server
-            console.log('Contact form submitted:', formValues);
-            
-            // Show success message with contact info
-            alert('Thank you! We will contact you soon. Phone: (+91) 93546-11065, Address: DWARKA SEC 3 NEW DELHI');
-            const success = document.createElement('div');
-            success.className = 'form-success';
-            success.innerHTML = '<strong>Submitted.</strong> We will call you shortly.<br>Phone: (+91) 93546-11065 · Address: DWARKA SEC 3 NEW DELHI';
-            contactForm.parentElement.appendChild(success);
-            contactForm.reset();
+            formValues._subject = 'New Contact Inquiry - KAKU GARAGE COMPANY';
+            formValues._template = 'table';
+            formValues.form_name = 'Contact Form';
+            try {
+                const resp = await fetch('https://formsubmit.co/ajax/kakugarage@gmail.com', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(formValues)
+                });
+                if (resp.ok) {
+                    const success = document.createElement('div');
+                    success.className = 'form-success';
+                    success.innerHTML = '<strong>Submitted.</strong> We will call you shortly.<br>Phone: (+91) 93546-11065 · Address: DWARKA SEC 3 NEW DELHI';
+                    contactForm.parentElement.appendChild(success);
+                    alert('Thank you! Your message was sent successfully.');
+                    contactForm.reset();
+                } else {
+                    alert('Sorry, we could not send your message right now. Please call (+91) 93546-11065.');
+                }
+            } catch (err) {
+                alert('Network error while sending message. Please try again or call us.');
+                console.error('Contact form error:', err);
+            }
         });
     }
 
     // Quick inquiry form
     if (quickInquiryForm) {
-        quickInquiryForm.addEventListener('submit', (e) => {
+        quickInquiryForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const hpq = document.getElementById('qi-website');
             if (hpq && hpq.value) return; // honeypot
-            alert('Inquiry received! Call (+91) 93546-11065 or visit DWARKA SEC 3 NEW DELHI');
-            const success = document.createElement('div');
-            success.className = 'form-success';
-            success.textContent = 'Inquiry submitted. We will reach out soon.';
-            quickInquiryForm.parentElement.appendChild(success);
-            quickInquiryForm.reset();
+            const formData = new FormData(quickInquiryForm);
+            const formValues = Object.fromEntries(formData.entries());
+            formValues._subject = 'Quick Inquiry - KAKU GARAGE COMPANY';
+            formValues._template = 'table';
+            formValues.form_name = 'Quick Inquiry';
+            try {
+                const resp = await fetch('https://formsubmit.co/ajax/kakugarage@gmail.com', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(formValues)
+                });
+                if (resp.ok) {
+                    const success = document.createElement('div');
+                    success.className = 'form-success';
+                    success.textContent = 'Inquiry submitted. We will reach out soon.';
+                    quickInquiryForm.parentElement.appendChild(success);
+                    alert('Inquiry received! We will contact you shortly.');
+                    quickInquiryForm.reset();
+                } else {
+                    alert('Sorry, inquiry could not be sent. Please call (+91) 93546-11065.');
+                }
+            } catch (err) {
+                alert('Network error while sending inquiry. Please try again or call us.');
+                console.error('Quick inquiry error:', err);
+            }
         });
     }
 
-    // Sell vehicle form success
+    // Sell vehicle form submission
     if (sellForm) {
-        sellForm.addEventListener('submit', (e) => {
+        sellForm.addEventListener('submit', async (e) => {
             e.preventDefault();
             const hp = document.getElementById('sell-website');
             if (hp && hp.value) return; // honeypot
-            alert('Details submitted! Contact: (+91) 93546-11065 · Address: DWARKA SEC 3 NEW DELHI');
-            const success = document.createElement('div');
-            success.className = 'form-success';
-            success.innerHTML = '<strong>Thank you.</strong> Our team will contact you.<br>Phone: (+91) 93546-11065 · Address: DWARKA SEC 3 NEW DELHI';
-            sellForm.appendChild(success);
-            sellForm.reset();
+            const formData = new FormData(sellForm);
+            const formValues = Object.fromEntries(formData.entries());
+            formValues._subject = 'Sell Vehicle Details - KAKU GARAGE COMPANY';
+            formValues._template = 'table';
+            formValues.form_name = 'Sell Vehicle Form';
+            try {
+                const resp = await fetch('https://formsubmit.co/ajax/kakugarage@gmail.com', {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+                    body: JSON.stringify(formValues)
+                });
+                if (resp.ok) {
+                    const success = document.createElement('div');
+                    success.className = 'form-success';
+                    success.innerHTML = '<strong>Thank you.</strong> Our team will contact you.<br>Phone: (+91) 93546-11065 · Address: DWARKA SEC 3 NEW DELHI';
+                    sellForm.appendChild(success);
+                    alert('Details submitted! We will contact you soon.');
+                    sellForm.reset();
+                } else {
+                    alert('Sorry, we could not submit your details. Please call (+91) 93546-11065.');
+                }
+            } catch (err) {
+                alert('Network error while submitting details. Please try again or call us.');
+                console.error('Sell form error:', err);
+            }
         });
     }
     
@@ -351,6 +438,26 @@ function showVehicleDetails(vehicleId) {
                         <span class="detail-label">Transmission:</span>
                         <span class="detail-value">${vehicle.transmission}</span>
                     </div>
+                    ${vehicle.owner ? `
+                    <div class="detail-item">
+                        <span class="detail-label">Owner:</span>
+                        <span class="detail-value">${vehicle.owner}</span>
+                    </div>` : ''}
+                    ${vehicle.fuel ? `
+                    <div class="detail-item">
+                        <span class="detail-label">Fuel:</span>
+                        <span class="detail-value">${vehicle.fuel}</span>
+                    </div>` : ''}
+                    ${vehicle.registration ? `
+                    <div class="detail-item">
+                        <span class="detail-label">Registration:</span>
+                        <span class="detail-value">${vehicle.registration}</span>
+                    </div>` : ''}
+                    ${vehicle.condition ? `
+                    <div class="detail-item">
+                        <span class="detail-label">Condition:</span>
+                        <span class="detail-value">${vehicle.condition}</span>
+                    </div>` : ''}
                 </div>
             </div>
             <div class="modal-footer">
@@ -506,4 +613,32 @@ document.addEventListener('DOMContentLoaded', () => {
       }
     });
   }
+
+  // Register service worker for PWA installability (respects CSP by using external script)
+  if ('serviceWorker' in navigator) {
+    navigator.serviceWorker.register('service-worker.js')
+      .catch((err) => console.error('Service worker registration failed:', err));
+  }
+  const showSoldCheckbox = document.getElementById('show-sold-checkbox');
+  showSoldCheckbox.addEventListener('change', filterVehicles);
 });
+
+// Show sold vehicles checkbox
+const showSoldCheckbox = document.getElementById('show-sold-checkbox');
+showSoldCheckbox.addEventListener('change', () => {
+    // Re-run filters to respect current selections and sold visibility
+    filterVehicles();
+});
+
+// Delegate Details button clicks (robust to dynamic re-renders)
+if (vehiclesContainer) {
+    vehiclesContainer.addEventListener('click', (e) => {
+        const btn = e.target.closest('.details-btn');
+        if (btn) {
+            const id = parseInt(btn.dataset.id, 10);
+            if (!Number.isNaN(id)) {
+                showVehicleDetails(id);
+            }
+        }
+    });
+}
