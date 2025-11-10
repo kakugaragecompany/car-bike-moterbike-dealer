@@ -2,7 +2,7 @@
 const vehiclesData = [
     // New listing: Audi 2013, 2nd owner, Petrol, MH registration
     {
-        id: 10,
+        id: 1,
         type: 'car',
         name: 'Audi A4 (2013)',
         price: '₹4,00,000',
@@ -17,7 +17,7 @@ const vehiclesData = [
         image: 'https://images.pexels.com/photos/1402787/pexels-photo-1402787.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
     {
-        id: 1,
+        id: 2,
         type: 'car',
         name: 'Honda City',
         price: '₹12,50,000',
@@ -27,7 +27,7 @@ const vehiclesData = [
         image: 'https://images.unsplash.com/photo-1533473359331-0135ef1b58bf?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
     },
     {
-        id: 2,
+        id: 3,
         type: 'car',
         name: 'Hyundai Creta',
         price: '₹14,20,000',
@@ -37,7 +37,7 @@ const vehiclesData = [
         image: 'https://images.unsplash.com/photo-1580273916550-e323be2ae537?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
     },
     {
-        id: 3,
+        id: 4,
         type: 'bike',
         name: 'Royal Enfield Classic 350',
         price: '₹1,90,000',
@@ -47,7 +47,7 @@ const vehiclesData = [
         image: 'https://images.unsplash.com/photo-1558981806-ec527fa84c39?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
     },
     {
-        id: 4,
+        id: 5,
         type: 'bike',
         name: 'Yamaha R15',
         price: '₹1,70,000',
@@ -57,7 +57,7 @@ const vehiclesData = [
         image: 'https://images.unsplash.com/photo-1449426468159-d96dbf08f19f?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
     },
     {
-        id: 5,
+        id: 6,
         type: 'scooter',
         name: 'Honda Activa 6G',
         price: '₹75,000',
@@ -67,7 +67,7 @@ const vehiclesData = [
         image: 'https://images.unsplash.com/photo-1619771914272-e3c1ba17ba4d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
     },
     {
-        id: 6,
+        id: 7,
         type: 'scooter',
         name: 'TVS Jupiter',
         price: '₹70,000',
@@ -77,7 +77,7 @@ const vehiclesData = [
         image: 'https://images.unsplash.com/photo-1571325654970-60aa4a1e4fac?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
     },
     {
-        id: 7,
+        id: 8,
         type: 'car',
         name: 'Maruti Swift',
         price: '₹8,50,000',
@@ -87,7 +87,7 @@ const vehiclesData = [
         image: 'https://images.unsplash.com/photo-1541899481282-d53bffe3c35d?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
     },
     {
-        id: 8,
+        id: 9,
         type: 'bike',
         name: 'Bajaj Pulsar NS200',
         price: '₹1,40,000',
@@ -97,7 +97,7 @@ const vehiclesData = [
         image: 'https://images.unsplash.com/photo-1568772585407-9361f9bf3a87?ixlib=rb-1.2.1&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=870&q=80'
     },
     {
-        id: 9,
+        id: 10,
         type: 'scooter',
         name: 'Suzuki Access 125',
         price: '₹80,000',
