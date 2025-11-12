@@ -12,7 +12,7 @@ const vehiclesData = [
         owner: '2nd owner',
         registration: 'MH registration',
         sold: false,
-        image: 'C:\Users\Dell\OneDrive\Pictures\KGC WEBSITE AUDI.jpg'
+        image: 'images/KGC WEBSITE AUDI.jpg'
     {
         id: 2,
         type: 'car',
@@ -20,7 +20,7 @@ const vehiclesData = [
         price: '₹3,60,000',
         year: 2018,
         transmission:
-        image: 'C:\Users\Dell\OneDrive\Pictures\KGC WEBSITE I10.jpg'
+        image: 'images/KGC WEBSITE I10.jpg'
     },
     {
         id: 3,
@@ -29,7 +29,7 @@ const vehiclesData = [
         price: '₹4,30,000',
         year: 2022,
         transmission:
-        image: 'C:\Users\Dell\OneDrive\Pictures\KGC WEBSITE WAGNOR .jpg'
+        image: 'images/KGC WEBSITE WAGNOR.jpg'
     },
     {
         id: 4,
@@ -38,7 +38,8 @@ const vehiclesData = [
         price: '₹1,60,000',
         year: 2013,
         transmission: 'Manual',
-        image: 'C:\Users\Dell\OneDrive\Pictures\KGC WEBSITE I10 GOURAV.jpg'
+        image: 'images/KGC WEBSITE I10 GOURAV.jpg'
+'
     },
     {
         id: 5,
@@ -47,7 +48,7 @@ const vehiclesData = [
         price: '₹49,000',
         year: 2018,
         transmission:
-        image: 'C:\Users\Dell\OneDrive\Pictures\KGC WEBSITE APACHI 49K.jpg'
+        image: 'images/KGC WEBSITE APACHI 49K.jpg'
     },
     {
         id: 6,
@@ -56,7 +57,7 @@ const vehiclesData = [
         price: '₹95,000',
         year: 2023
         transmission: 
-        image: 'C:\Users\Dell\OneDrive\Pictures\KGC WEBSITE APACHI.jpg'
+        image: ''
     },
     {
         id: 7,
@@ -65,7 +66,7 @@ const vehiclesData = [
         price: '₹30,000',
         year: 2017,
         transmission: 
-        image: 'C:\Users\Dell\OneDrive\Pictures\KGC WEBSITE APACHI.jpg'
+        image: 'images/KGC WEBSITE APACHI.jpg'
     },
     {
         id: 8,
@@ -74,27 +75,8 @@ const vehiclesData = [
         price: '₹42,000',
         year: 2020,
         transmission:
-        image: 'C:\Users\Dell\OneDrive\Pictures\KGC WEBSITE NTORQ.jpg'
+        image: 'images/KGC WEBSITE APACHI.jpg'
     },
-    {
-        id:
-        type:
-        name: 
-        price: 
-        year:
-        mileage:
-        transmission: 
-        image: 
-    {
-        id:
-        type: 
-        name: ,
-        price: 
-        year:
-        mileage:
-        transmission: 
-        image: 
-    }
 ];
 
 // DOM Elements
@@ -632,4 +614,5 @@ if (vehiclesContainer) {
     });
 
 }
+
 
