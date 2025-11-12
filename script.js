@@ -10,9 +10,7 @@ const vehiclesData = [
         transmission: 'Automatic',
         fuel: 'Petrol',
         owner: '2nd owner',
-        registration: 'MH registration',
-        sold: false,
-        image: 'images/KGC WEBSITE AUDI.jpg'
+        image: 'images/KGC_WEBSITE_AUDI.jpg'
     {
         id: 2,
         type: 'car',
@@ -20,7 +18,7 @@ const vehiclesData = [
         price: '₹3,60,000',
         year: 2018,
         transmission:
-        image: 'images/KGC WEBSITE I10.jpg'
+        image: 'images/KGC_WEBSITE_I10.jpg'
     },
     {
         id: 3,
@@ -29,7 +27,7 @@ const vehiclesData = [
         price: '₹4,30,000',
         year: 2022,
         transmission:
-        image: 'images/KGC WEBSITE WAGNOR.jpg'
+        image: 'images/KGC_WEBSITE_WAGNOR.jpg'
     },
     {
         id: 4,
@@ -38,7 +36,7 @@ const vehiclesData = [
         price: '₹1,60,000',
         year: 2013,
         transmission: 'Manual',
-        image: 'images/KGC WEBSITE I10 GOURAV.jpg'
+        image: 'images/KGC_WEBSITE_I10_GOURAV.jpg'
 '
     },
     {
@@ -48,7 +46,7 @@ const vehiclesData = [
         price: '₹49,000',
         year: 2018,
         transmission:
-        image: 'images/KGC WEBSITE APACHI 49K.jpg'
+        image: 'images/KGC_WEBSITE_APACHI.jpg'
     },
     {
         id: 6,
@@ -57,7 +55,7 @@ const vehiclesData = [
         price: '₹95,000',
         year: 2023
         transmission: 
-        image: ''
+        image: 'images/KGC_WEBSITE_1L_APACHI.jpg'
     },
     {
         id: 7,
@@ -66,7 +64,7 @@ const vehiclesData = [
         price: '₹30,000',
         year: 2017,
         transmission: 
-        image: 'images/KGC WEBSITE APACHI.jpg'
+        image: 'images/KGC_WEBSITE_MESTRO.jpg'
     },
     {
         id: 8,
@@ -75,7 +73,7 @@ const vehiclesData = [
         price: '₹42,000',
         year: 2020,
         transmission:
-        image: 'images/KGC WEBSITE APACHI.jpg'
+        image: 'images/KGC_WEBSITE_NTORQ.jpg'
     },
 ];
 
@@ -614,5 +612,6 @@ if (vehiclesContainer) {
     });
 
 }
+
 
 
