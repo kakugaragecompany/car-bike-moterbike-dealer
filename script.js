@@ -10,7 +10,7 @@ const vehiclesData = [
         transmission: 'Automatic',
         fuel: 'Petrol',
         owner: '2nd owner',
-        image: 'images/KGC_WEBSITE_AUDI.jpg',
+        image: 'images/KGC_WEBSITE_AUDI.jpg'
     },   
     {
         id: 2,
@@ -18,7 +18,7 @@ const vehiclesData = [
         name: 'Hyundai Grand i10',
         price: '₹3,60,000',
         year: 2018,
-        image: 'images/KGC_WEBSITE_I10.jpg',
+        image: 'images/KGC_WEBSITE_I10.jpg'
     },
     {
         id: 3,
@@ -26,7 +26,7 @@ const vehiclesData = [
         name: 'Maruti WagnoR LXI',
         price: '₹4,30,000',
         year: 2022,
-        image: 'images/KGC_WEBSITE_WAGNOR.jpg',
+        image: 'images/KGC_WEBSITE_WAGNOR.jpg'
     },
     {
         id: 4,
@@ -35,8 +35,7 @@ const vehiclesData = [
         price: '₹1,60,000',
         year: 2013,
         transmission: 'Manual',
-        image: 'images/KGC_WEBSITE_I10_GOURAV.jpg',
-
+        image: 'images/KGC_WEBSITE_I10_GOURAV.jpg'
     },
     {
         id: 5,
@@ -44,14 +43,14 @@ const vehiclesData = [
         name: 'apache 160rtr',
         price: '₹49,000',
         year: 2018,
-        image: 'images/KGC_WEBSITE_APACHI.jpg',
+        image: 'images/KGC_WEBSITE_APACHI.jpg'
     },
     {
         id: 6,
         type: 'bike',
         name: 'apache 160 4v',
         price: '₹95,000',
-        year: 2023
+        year: 2023,
         image: 'images/KGC_WEBSITE_1L_APACHI.jpg',
     },
     {
@@ -60,7 +59,7 @@ const vehiclesData = [
         name: 'Mestro Eage',
         price: '₹30,000',
         year: 2017,
-        image: 'images/KGC_WEBSITE_MESTRO.jpg',
+        image: 'images/KGC_WEBSITE_MESTRO.jpg'
     },
     {
         id: 8,
@@ -68,7 +67,7 @@ const vehiclesData = [
         name: 'TVS Ntorq 125cc caption america edition',
         price: '₹42,000',
         year: 2020,
-        image: 'images/KGC_WEBSITE_NTORQ.jpg',
+        image: 'images/KGC_WEBSITE_NTORQ.jpg'
     },
 ];
 
@@ -607,6 +606,7 @@ if (vehiclesContainer) {
     });
 
 }
+
 
 
 
