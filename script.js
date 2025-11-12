@@ -4,7 +4,7 @@ const vehiclesData = [
     {
         id: 1,
         type: 'car',
-        name: 'Audi A4 (2013)',
+        name: 'Audi A4 1.8',
         price: '₹4,00,000',
         year: 2013,
         mileage: '13 km/l',
@@ -12,7 +12,6 @@ const vehiclesData = [
         fuel: 'Petrol',
         owner: '2nd owner',
         registration: 'MH registration',
-        condition: 'Good and clean condition',
         sold: false,
         image: 'https://images.pexels.com/photos/1402787/pexels-photo-1402787.jpeg?auto=compress&cs=tinysrgb&w=800'
     },
@@ -641,4 +640,5 @@ if (vehiclesContainer) {
             }
         }
     });
+
 }
