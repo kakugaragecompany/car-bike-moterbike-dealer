@@ -387,5 +387,36 @@
 
     <script src="script.js"></script>
 </div>
+            
+  <script>
+document.getElementById("quickInquiryForm").addEventListener("submit", function(e) {
+  e.preventDefault();
+
+  const formData = {
+    name: document.getElementById("qi-name").value,
+    phone: document.getElementById("qi-phone").value,
+    message: document.getElementById("qi-message").value,
+    source: "Quick Inquiry Form"
+  };
+
+  fetch("https://script.google.com/macros/s/AKfycbxGOa8mNAc8n3LSyktjKuo-BU6QcDe-N5tAF-LTG5J7bZJhhDAcgdsqGqtTUHd8tBCZ/exec", {
+    method: "POST",
+    body: JSON.stringify(formData),
+    headers: {
+      "Content-Type": "application/json"
+    }
+  })
+  .then(res => res.text())
+  .then(data => {
+    alert("✅ Thank you! Your inquiry has been sent successfully.");
+    document.getElementById("quickInquiryForm").reset();
+  })
+  .catch(err => {
+    alert("⚠️ Something went wrong. Please try again later.");
+    console.error(err);
+  });
+});
+</script>
+          
 </body>
 </html>
