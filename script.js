@@ -605,14 +605,8 @@ if (vehiclesContainer) {
     });
 
 }
-// Popup Logic
-function openPopup() {
-  document.getElementById("comingSoonPopup").style.display = "flex";
-}
 
-function closePopup() {
-  document.getElementById("comingSoonPopup").style.display = "none";
-}
+
 
 
 
