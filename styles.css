@@ -889,6 +889,30 @@ footer {
 .footer-app .store-icon:hover {
   transform: scale(1.05);
 }
+/* ✅ Neat one-line App Store & Play Store layout */
+.footer-app p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  flex-wrap: wrap;
+  font-size: 16px;
+  color: #ffffff;
+  margin: 0;
+  text-align: center;
+}
+
+.footer-app .store-icon {
+  height: 22px;  /* smaller, neat icons */
+  width: auto;
+  vertical-align: middle;
+  transition: transform 0.2s ease-in-out;
+}
+
+.footer-app .store-icon:hover {
+  transform: scale(1.1);
+}
+
 
 
 
