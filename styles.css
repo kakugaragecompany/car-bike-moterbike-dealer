@@ -920,3 +920,62 @@ footer {
     flex-direction: column;
   }
 }
+/* ================================
+   MOBILE MENU ANIMATION & STYLING
+================================= */
+
+/* Hamburger icon styling */
+.menu-toggle {
+  display: none;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  padding: 10px;
+}
+
+.menu-toggle .bar {
+  width: 28px;
+  height: 3px;
+  background-color: #333;
+  margin: 4px 0;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* Show hamburger only on small screens */
+@media (max-width: 880px) {
+  .menu-toggle {
+    display: flex;
+  }
+
+  .main-nav ul {
+    display: none;
+    flex-direction: column;
+    width: 100%;
+    background: #ffffff;
+    position: absolute;
+    top: 70px; /* adjust to your header height */
+    left: 0;
+    padding: 15px 0;
+    border-top: 1px solid #ddd;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, 0.05);
+  }
+
+  .main-nav ul.active {
+    display: flex;
+    animation: slideDown 0.3s ease forwards;
+  }
+
+  .main-nav ul li {
+    text-align: center;
+    margin: 10px 0;
+  }
+}
+
+/* Smooth dropdown animation */
+@keyframes slideDown {
+  0% { opacity: 0; transform: translateY(-10px); }
+  100% { opacity: 1; transform: translateY(0); }
+}
+
