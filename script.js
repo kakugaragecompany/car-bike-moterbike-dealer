@@ -1,6 +1,5 @@
 // Sample vehicle data
 const vehiclesData = [
-   // New listing: Audi 2013, 2nd owner, Petrol, MH registration
     {
         id: 1,
         type: 'car',
@@ -606,6 +605,7 @@ if (vehiclesContainer) {
     });
 
 }
+
 
 
 
