@@ -869,6 +869,27 @@ footer {
 .footer-app .store-icon:hover {
     transform: scale(1.1);
 }
+/* Footer App Icons Styling */
+.footer-app p {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  flex-wrap: wrap;
+  font-size: 16px;
+  color: #ffffff;
+}
+
+.footer-app .store-icon {
+  height: 35px;   /* smaller size */
+  width: auto;
+  transition: transform 0.2s ease-in-out;
+}
+
+.footer-app .store-icon:hover {
+  transform: scale(1.05);
+}
+
 
 
 
