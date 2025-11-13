@@ -858,6 +858,18 @@ footer {
     font-size: 16px;
     margin: 0;
 }
+.footer-app .store-icon {
+    height: 30px;
+    vertical-align: middle;
+    margin: 0 5px;
+    filter: brightness(0) invert(1); /* makes icons white on dark background */
+    transition: transform 0.3s ease;
+}
+
+.footer-app .store-icon:hover {
+    transform: scale(1.1);
+}
+
 
 
 
