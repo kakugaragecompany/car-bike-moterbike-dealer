@@ -605,6 +605,17 @@ if (vehiclesContainer) {
     });
 
 }
+// Mobile menu toggle
+const mobileMenu = document.getElementById('mobile-menu');
+const navMenu = document.querySelector('.main-nav ul');
+
+if (mobileMenu && navMenu) {
+  mobileMenu.addEventListener('click', () => {
+    navMenu.classList.toggle('active');
+    mobileMenu.classList.toggle('open');
+  });
+}
+
 
 
 
