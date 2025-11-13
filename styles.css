@@ -841,5 +841,23 @@ footer {
     .logo-container {
         justify-content: center;
     }
+/* ===== Footer App Section ===== */
+.footer-app {
+    text-align: center;
+    margin-top: 20px;
+}
+
+.footer-app h3 {
+    color: #ffffff;
+    font-size: 18px;
+    margin-bottom: 10px;
+}
+
+.footer-app p {
+    color: #cccccc;
+    font-size: 16px;
+    margin: 0;
+}
+
 
 
