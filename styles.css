@@ -841,4 +841,82 @@ footer {
     .logo-container {
         justify-content: center;
     }
+
+}
+/* =========================
+   📱 MOBILE RESPONSIVE DESIGN
+   ========================= */
+
+/* Small phones (max width: 480px) */
+@media (max-width: 480px) {
+  body {
+    font-size: 14px;
+    line-height: 1.5;
+  }
+
+  /* Header and logo */
+  .logo-container h1 {
+    font-size: 22px;
+    text-align: center;
+  }
+
+  /* Navigation */
+  nav ul {
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+  }
+
+  /* Search bar */
+  .search-container {
+    flex-direction: column;
+    gap: 10px;
+    width: 90%;
+    margin: 0 auto;
+  }
+  .search-bar {
+    width: 100%;
+  }
+
+  /* Buttons */
+  .btn, .download-app {
+    width: 100%;
+    padding: 10px 0;
+    text-align: center;
+  }
+
+  /* About section */
+  .about-content {
+    flex-direction: column;
+    gap: 20px;
+    text-align: center;
+  }
+  .about-image img {
+    width: 100%;
+    border-radius: 8px;
+  }
+
+  /* Vehicles or product cards */
+  .vehicles-container {
+    grid-template-columns: 1fr;
+  }
+
+  /* Footer */
+  footer {
+    text-align: center;
+  }
+}
+
+/* Medium screens (tablets up to 900px) */
+@media (max-width: 900px) {
+  .logo-container h1 {
+    font-size: 24px;
+  }
+  .main-nav {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .about-content {
+    flex-direction: column;
+  }
 }
