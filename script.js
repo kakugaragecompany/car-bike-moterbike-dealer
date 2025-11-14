@@ -607,6 +607,31 @@ if (vehiclesContainer) {
     });
 
 }
+// -------- GOOGLE SHEETS SUBMIT FUNCTION -------- //
+async function sendToGoogleSheet(formElement, formName) {
+    const formData = new FormData(formElement);
+
+    // Add Form Name
+    formData.append("form_name", formName);
+
+    try {
+        const response = await fetch(scriptURL, {
+            method: "POST",
+            body: formData
+        });
+
+        if (response.ok) {
+            alert("Submitted successfully!");
+            formElement.reset();
+        } else {
+            alert("Failed to submit. Please try again.");
+        }
+    } catch (error) {
+        alert("Network error. Please try again.");
+        console.error("Google Sheet Error:", error);
+    }
+}
+
 
 
 
