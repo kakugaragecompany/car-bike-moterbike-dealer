@@ -396,7 +396,7 @@
     <script src="script.js"></script>
 </div>
             
-  <script>
+ <script>
 document.getElementById("quickInquiryForm").addEventListener("submit", function(e) {
   e.preventDefault();
 
@@ -407,7 +407,7 @@ document.getElementById("quickInquiryForm").addEventListener("submit", function(
     source: "Quick Inquiry Form"
   };
 
-  fetch("https://script.google.com/macros/s/AKfycbzf5DKo99zTkZdVNMov2XxmzJdFNuSIBKdwUMPyVxI9Cbxopa907OG1mfMywnFJZCfm/exec", {
+  fetch("https://script.google.com/macros/s/AKfycbyy_aZbOS4mOQBWraE1r1_p0jx8KNZVdOeslzjW1PGrhbxDiiKjeOY7lzxIhN1NgiJP/exec", {
     method: "POST",
     body: JSON.stringify(formData),
     headers: {
@@ -416,11 +416,11 @@ document.getElementById("quickInquiryForm").addEventListener("submit", function(
   })
   .then(res => res.text())
   .then(data => {
-    alert("✅ Thank you! Your inquiry has been sent successfully.");
+    alert("✅ Inquiry sent successfully!");
     document.getElementById("quickInquiryForm").reset();
   })
   .catch(err => {
-    alert("⚠️ Something went wrong. Please try again later.");
+    alert("⚠️ Error sending inquiry.");
     console.error(err);
   });
 });
