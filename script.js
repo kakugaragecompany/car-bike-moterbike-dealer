@@ -1,5 +1,4 @@
-const scriptURL = "https://script.google.com/macros/s/AKfycbxGLlRUfr4sc_LZriIGU-elT0GeHSAQXkX9HkzPawS7wtwKXes58eoahyPd07bS7Jdx/exec";
-
+const scriptURL = "https://script.google.com/macros/s/AKfycbzAKxNjpL6gu1wBK8jZIr0O1eoM1kcCQVB2MY92ofhPagbQ5KOQ__6fVoED-CLIP41D/exec";
 // Sample vehicle data
 const vehiclesData = [
     {
@@ -607,3 +606,4 @@ if (vehiclesContainer) {
     });
 
 }
+
