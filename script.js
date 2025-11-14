@@ -239,7 +239,7 @@ function setupEventListeners() {
             formValues._template = 'table';
             formValues.form_name = 'Contact Form';
             try {
-                const resp = await fetch('https://formsubmit.co/ajax/kakugarage@gmail.com', {
+                const resp = await fetch(scriptURL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                     body: JSON.stringify(formValues)
@@ -273,7 +273,7 @@ function setupEventListeners() {
             formValues._template = 'table';
             formValues.form_name = 'Quick Inquiry';
             try {
-                const resp = await fetch('https://formsubmit.co/ajax/kakugarage@gmail.com', {
+                const resp = await fetch(scriptURL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                     body: JSON.stringify(formValues)
@@ -307,7 +307,7 @@ function setupEventListeners() {
             formValues._template = 'table';
             formValues.form_name = 'Sell Vehicle Form';
             try {
-                const resp = await fetch('https://formsubmit.co/ajax/kakugarage@gmail.com', {
+                const resp = await fetch(scriptURL, {
                     method: 'POST',
                     headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
                     body: JSON.stringify(formValues)
@@ -631,6 +631,7 @@ async function sendToGoogleSheet(formElement, formName) {
         console.error("Google Sheet Error:", error);
     }
 }
+
 
 
 
