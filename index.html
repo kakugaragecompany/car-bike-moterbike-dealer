@@ -398,26 +398,32 @@
             
  <script>
 document.getElementById("quickInquiryForm").addEventListener("submit", function(e) {
-  e.preventDefault();
+    e.preventDefault();
 
-  const formData = {
-    name: document.getElementById("qi-name").value,
-    phone: document.getElementById("qi-phone").value,
-    message: document.getElementById("qi-message").value,
-    source: "Quick Inquiry Form"
-  };
+    const formData = {
+        name: document.getElementById("inq-name").value,
+        email: document.getElementById("inq-email").value,
+        phone: document.getElementById("inq-phone").value,
+        message: document.getElementById("inq-message").value,
+        source: "Quick Inquiry Form"
+    };
 
-  fetch("https://script.google.com/macros/s/AKfycbyy_aZbOS4mOQBWraE1r1_p0jx8KNZVdOeslzjW1PGrhbxDiiKjeOY7lzxIhN1NgiJP/exec", {
-    method: "POST",
-    body: JSON.stringify(formData),
-    headers: {
-      "Content-Type": "application/json"
-    }
-  })
-  .then(res => res.text())
-  .then(data => {
-    alert("✅ Inquiry sent successfully!");
-    document.getElementById("quickInquiryForm").reset();
+    fetch("https://script.google.com/macros/s/AKfycbyy_aZbOS4mOQBWraE1r1_p0jx8KNZVdOeslzjW1PGrhbxDiiKjeOY7lzxIhN1NgiJP/exec", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(res => res.text())
+    .then(data => {
+        alert("Inquiry sent successfully!");
+        document.getElementById("quickInquiryForm").reset();
+    })
+    .catch(err => {
+        alert("Error sending inquiry.");
+        console.error(err);
+    });
   })
   .catch(err => {
     alert("⚠️ Error sending inquiry.");
