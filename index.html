@@ -114,30 +114,39 @@
                 </div>
                 <a href="#contact" class="btn primary">Send us a message</a>
             </div>
-            <div class="contact-form">
-               <form action="https://api.web3forms.com/submit" method="POST" id="quickInquiryForm">
+             <form id="quickInquiryForm">
+    <div class="form-row">
+        <div class="form-group">
+            <label for="name">Full Name</label>
+            <input type="text" id="name" name="name" placeholder="Enter your name" required>
+        </div>
 
-              <input type="hidden" name="access_key" value="08941a5d-465d-4b29-b7c8-21e087921eae">
+        <div class="form-group">
+            <label for="mobile">Mobile Number</label>
+            <input type="tel" id="mobile" name="mobile" placeholder="Enter mobile number" required>
+        </div>
+    </div>
 
-      <div class="input-group">
-        <input type="text" name="name" placeholder="Your Name" required>
-      </div>
+    <div class="form-row">
+        <div class="form-group">
+            <label for="vehicle">Vehicle Model</label>
+            <input type="text" id="vehicle" name="vehicle" placeholder="Enter vehicle model" required>
+        </div>
 
-      <div class="input-group">
-        <input type="email" name="email" placeholder="Your Email" required>
-      </div>
+        <div class="form-group">
+            <label for="year">Year</label>
+            <input type="number" id="year" name="year" placeholder="Year" required>
+        </div>
+    </div>
 
-      <div class="input-group">
-        <input type="text" name="phone" placeholder="Your Phone Number" required>
-      </div>
+    <div class="form-group">
+        <label for="message">Your Message</label>
+        <textarea id="message" name="message" placeholder="Describe what you are looking for..." required></textarea>
+    </div>
 
-      <div class="input-group">
-        <textarea name="message" placeholder="Your Message" required></textarea>
-      </div>
-
-    <button type="submit" class="btn-send">Send Inquiry</button>
-        </form>
-                
+    <button type="submit" class="btn btn-primary">Submit Inquiry</button>
+</form>
+   
             </div>
         </div>
     </section>
@@ -329,27 +338,35 @@
                     <button type="submit" class="btn primary">Send Message</button>
                 </form>
             </div>
-            <div class="contact-info">
-                <h3>Get in touch</h3>
-                <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> DWARKA SEC 3 NEW DELHI</p>
-                <p><i class="fas fa-phone"></i> <strong>Phone:</strong> (+91) 93546-11065</p>
-                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> kakugarage@gmail.com</p>
-                
-                <h3 class="business-hours-title">Business Hours</h3>
-                <div class="business-hours">
-                    <p><strong>Monday - Saturday:</strong> 9:00 AM - 6:00 PM</p>
-                    <p><strong>Sunday:</strong> 10:00 AM - 4:00 PM</p>
-                </div>
-                
-                <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                </div>
+         <section id="contact" class="contact-section">
+    <h2 class="section-title">Contact Us</h2>
+
+    <div class="contact-container">
+
+        <!-- Only contact info remains, no form -->
+
+        <div class="contact-info">
+            <h3>Get in touch</h3>
+            <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> DWARKA SEC 3 NEW DELHI</p>
+            <p><i class="fas fa-phone"></i> <strong>Phone:</strong> (+91) 93546-11065</p>
+            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> kakugarage@gmail.com</p>
+
+            <h3 class="business-hours-title">Business Hours</h3>
+            <div class="business-hours">
+                <p><strong>Monday - Saturday:</strong> 9:00 AM - 6:00 PM</p>
+                <p><strong>Sunday:</strong> 10:00 AM - 4:00 PM</p>
+            </div>
+
+            <div class="social-links">
+                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
             </div>
         </div>
-    </section>
+
+    </div>
+</section>
 
     <footer>
         <div class="footer-content">
