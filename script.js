@@ -1,5 +1,3 @@
-const scriptURL = "https://script.google.com/macros/s/AKfycby0H5zvGf2lWJfw0hZmz1NtaVva6NqF1uT7qWuz5yYPkHECy3o_hIh6HN9IVKBQTI5p/exec";
-
 // Sample vehicle data
 const vehiclesData = [
     {
@@ -607,6 +605,7 @@ if (vehiclesContainer) {
     });
 
 }
+
 
 
 
