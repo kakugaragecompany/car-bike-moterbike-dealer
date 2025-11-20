@@ -10,6 +10,8 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="/">
     <meta property="og:image" content="images/kgc-logo.png">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; script-src 'self'; font-src 'self' https://cdnjs.cloudflare.com; connect-src 'self';">
+    <title>KAKU GARAGE COMPANY</title>
     <link rel="icon" href="images/kgc-logo.png" type="image/png">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
@@ -114,39 +116,32 @@
                 </div>
                 <a href="#contact" class="btn primary">Send us a message</a>
             </div>
-             <form id="quickInquiryForm">
-    <div class="form-row">
-        <div class="form-group">
-            <label for="name">Full Name</label>
-            <input type="text" id="name" name="name" placeholder="Enter your name" required>
-        </div>
+            <div class="contact-form">
+                <h3>Quick Inquiry</h3>
+                <form id="quickInquiryForm">
 
-        <div class="form-group">
-            <label for="mobile">Mobile Number</label>
-            <input type="tel" id="mobile" name="mobile" placeholder="Enter mobile number" required>
-        </div>
-    </div>
+    <!-- Hidden honeypot field -->
+    <input type="text" id="qi-website" name="qi-website" autocomplete="off" tabindex="-1" style="display:none">
 
-    <div class="form-row">
-        <div class="form-group">
-            <label for="vehicle">Vehicle Model</label>
-            <input type="text" id="vehicle" name="vehicle" placeholder="Enter vehicle model" required>
-        </div>
-
-        <div class="form-group">
-            <label for="year">Year</label>
-            <input type="number" id="year" name="year" placeholder="Year" required>
-        </div>
+    <div class="form-group">
+        <label for="qi-name">Name</label>
+        <input type="text" id="qi-name" name="name" required>
     </div>
 
     <div class="form-group">
-        <label for="message">Your Message</label>
-        <textarea id="message" name="message" placeholder="Describe what you are looking for..." required></textarea>
+        <label for="qi-phone">Phone</label>
+        <input type="tel" id="qi-phone" name="phone">
     </div>
 
-    <button type="submit" class="btn btn-primary">Submit Inquiry</button>
-</form>
-   
+    <div class="form-group">
+        <label for="qi-message">Message</label>
+        <textarea id="qi-message" name="message" rows="4" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Send Inquiry</button>
+
+   </form>
+                
             </div>
         </div>
     </section>
@@ -338,35 +333,27 @@
                     <button type="submit" class="btn primary">Send Message</button>
                 </form>
             </div>
-         <section id="contact" class="contact-section">
-    <h2 class="section-title">Contact Us</h2>
-
-    <div class="contact-container">
-
-        <!-- Only contact info remains, no form -->
-
-        <div class="contact-info">
-            <h3>Get in touch</h3>
-            <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> DWARKA SEC 3 NEW DELHI</p>
-            <p><i class="fas fa-phone"></i> <strong>Phone:</strong> (+91) 93546-11065</p>
-            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> kakugarage@gmail.com</p>
-
-            <h3 class="business-hours-title">Business Hours</h3>
-            <div class="business-hours">
-                <p><strong>Monday - Saturday:</strong> 9:00 AM - 6:00 PM</p>
-                <p><strong>Sunday:</strong> 10:00 AM - 4:00 PM</p>
-            </div>
-
-            <div class="social-links">
-                <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+            <div class="contact-info">
+                <h3>Get in touch</h3>
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> DWARKA SEC 3 NEW DELHI</p>
+                <p><i class="fas fa-phone"></i> <strong>Phone:</strong> (+91) 93546-11065</p>
+                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> kakugarage@gmail.com</p>
+                
+                <h3 class="business-hours-title">Business Hours</h3>
+                <div class="business-hours">
+                    <p><strong>Monday - Saturday:</strong> 9:00 AM - 6:00 PM</p>
+                    <p><strong>Sunday:</strong> 10:00 AM - 4:00 PM</p>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
             </div>
         </div>
-
-    </div>
-</section>
+    </section>
 
     <footer>
         <div class="footer-content">
@@ -408,6 +395,42 @@
 
     <script src="script.js"></script>
 </div>
+            
+ <script>
+document.getElementById("quickInquiryForm").addEventListener("submit", function(e) {
+    e.preventDefault();
+
+    const formData = {
+        name: document.getElementById("inq-name").value,
+        email: document.getElementById("inq-email").value,
+        phone: document.getElementById("inq-phone").value,
+        message: document.getElementById("inq-message").value,
+        source: "Quick Inquiry Form"
+    };
+
+    fetch("https://script.google.com/macros/s/AKfycbyy_aZbOS4mOQBWraE1r1_p0jx8KNZVdOeslzjW1PGrhbxDiiKjeOY7lzxIhN1NgiJP/exec", {
+        method: "POST",
+        body: JSON.stringify(formData),
+        headers: {
+            "Content-Type": "application/json"
+        }
+    })
+    .then(res => res.text())
+    .then(data => {
+        alert("Inquiry sent successfully!");
+        document.getElementById("quickInquiryForm").reset();
+    })
+    .catch(err => {
+        alert("Error sending inquiry.");
+        console.error(err);
+    });
+  })
+  .catch(err => {
+    alert("⚠️ Error sending inquiry.");
+    console.error(err);
+  });
+});
+</script>
           
 </body>
 </html>
