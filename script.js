@@ -1,3 +1,5 @@
+const scriptURL = "https://api.web3forms.com/submit";
+
 // Sample vehicle data
 const vehiclesData = [
     {
@@ -558,6 +560,11 @@ document.addEventListener('DOMContentLoaded', () => {
   const contactForm = document.getElementById('contactForm');
   if (contactForm) {
     contactForm.addEventListener('submit', (e) => {
+       const hpq = document.querySelector('input[name="botcheck"]');
+if (hpq && hpq.value) {
+    e.preventDefault();
+    return;
+}
       const hp = document.getElementById('website');
       if (hp && hp.value) {
         // Honeypot filled: likely bot
@@ -605,6 +612,7 @@ if (vehiclesContainer) {
     });
 
 }
+
 
 
 
