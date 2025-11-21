@@ -118,10 +118,17 @@
             </div>
             <div class="contact-form">
                 <h3>Quick Inquiry</h3>
-                <form id="quickInquiryForm">
+                <form id="quickInquiryForm"
+                action="https://api.web3forms.com/submit"
+                method="POST"
+                     <input type="hidden" name="access_key" value="d8f3e9c0-1234-4a44-9abc-448bb7c7330a">
+                     <input type="hidden" name="subject" value="New Quick Inquiry Message">
+                     <input type="hidden" name="from_name" value="Kaku Garage Website">
+                     <input type="hidden" name="redirect" value="https://web3forms.com/success">
+
 
     <!-- Hidden honeypot field -->
-    <input type="text" id="qi-website" name="qi-website" autocomplete="off" tabindex="-1" style="display:none">
+    <input type="text" name="botcheck" style="display:none">
 
     <div class="form-group">
         <label for="qi-name">Name</label>
