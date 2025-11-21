@@ -117,17 +117,15 @@
                 <a href="#contact" class="btn primary">Send us a message</a>
             </div>
             <div class="contact-form">
-                <h3>Quick Inquiry</h3>
-                <form id="quickInquiryForm"
-                action="https://api.web3forms.com/submit"
-                method="POST"
-                     <input type="hidden" name="access_key" value="d8f3e9c0-1234-4a44-9abc-448bb7c7330a">
-                     <input type="hidden" name="subject" value="New Quick Inquiry Message">
-                     <input type="hidden" name="from_name" value="Kaku Garage Website">
-                     <input type="hidden" name="redirect" value="https://web3forms.com/success">
+               <h3>Quick Inquiry</h3>
 
+<form id="quickInquiryForm" action="https://api.web3forms.com/submit" method="POST">
 
-    <!-- Hidden honeypot field -->
+    <input type="hidden" name="access_key" value="d8f3e9c0-1234-4a44-9abc-448bb7c7330a">
+    <input type="hidden" name="subject" value="New Quick Inquiry Message">
+    <input type="hidden" name="from_name" value="Kaku Garage Website">
+
+    <!-- Honeypot -->
     <input type="text" name="botcheck" style="display:none">
 
     <div class="form-group">
@@ -147,7 +145,8 @@
 
     <button type="submit" class="btn btn-primary">Send Inquiry</button>
 
-   </form>
+</form>
+
                 
             </div>
         </div>
