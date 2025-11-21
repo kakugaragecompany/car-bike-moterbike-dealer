@@ -555,33 +555,6 @@ function showVehicleDetails(vehicleId) {
 function capitalizeFirstLetter(string) {
     return string.charAt(0).toUpperCase() + string.slice(1);
 }
-// Basic anti-spam: ignore submissions when honeypot fields are filled
-document.addEventListener('DOMContentLoaded', () => {
-  const contactForm = document.getElementById('contactForm');
-  if (contactForm) {
-    contactForm.addEventListener('submit', (e) => {
-       const hpq = document.querySelector('input[name="botcheck"]');
-if (hpq && hpq.value) {
-    e.preventDefault();
-    return;
-}
-      const hp = document.getElementById('website');
-      if (hp && hp.value) {
-        // Honeypot filled: likely bot
-        e.preventDefault();
-      }
-    });
-  }
-
-  const sellForm = document.getElementById('sellVehicleForm');
-  if (sellForm) {
-    sellForm.addEventListener('submit', (e) => {
-      const hp = document.getElementById('sell-website');
-      if (hp && hp.value) {
-        e.preventDefault();
-      }
-    });
-  }
 
   // Register service worker for PWA installability (respects CSP by using external script)
   if ('serviceWorker' in navigator) {
@@ -612,6 +585,7 @@ if (vehiclesContainer) {
     });
 
 }
+
 
 
 
