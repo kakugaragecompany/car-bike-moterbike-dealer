@@ -1,7 +1,8 @@
 const scriptURL = "https://api.web3forms.com/submit";
 
 // Sample vehicle data
-const vehiclesData = [
+const vehicles = [
+
     {
         id: 1,
         type: 'car',
@@ -565,26 +566,58 @@ function capitalizeFirstLetter(string) {
   showSoldCheckbox.addEventListener('change', filterVehicles);
 });
 
-// Show sold vehicles checkbox
-const showSoldCheckbox = document.getElementById('show-sold-checkbox');
-showSoldCheckbox.addEventListener('change', () => {
-    // Re-run filters to respect current selections and sold visibility
-    filterVehicles();
-});
+// ----------------------
+// RE-ADD VEHICLE RENDERING SYSTEM
+// ----------------------
 
-// Delegate Details button clicks (robust to dynamic re-renders)
-if (vehiclesContainer) {
-    vehiclesContainer.addEventListener('click', (e) => {
-        const btn = e.target.closest('.details-btn');
-        if (btn) {
-            const id = parseInt(btn.dataset.id, 10);
-            if (!Number.isNaN(id)) {
-                showVehicleDetails(id);
-            }
-        }
+// HTML container for vehicles
+const vehiclesContainer = document.getElementById('vehicles-container');
+
+// MAIN FUNCTION – RENDER VEHICLES
+function renderVehicles(vehiclesList) {
+    if (!vehiclesContainer) return;
+
+    vehiclesContainer.innerHTML = '';
+
+    vehiclesList.forEach((v) => {
+        const card = document.createElement('div');
+        card.className = 'vehicle-card';
+
+        card.innerHTML = `
+            <img src="${v.image}" alt="${v.name}">
+            <h3>${v.name}</h3>
+            <p>${v.year} • ${v.km} KM</p>
+            <p class="price">₹ ${v.price}</p>
+            <button class="details-btn" data-id="${v.id}">Details</button>
+        `;
+
+        vehiclesContainer.appendChild(card);
     });
+}
+
+// APPLY FILTERS
+function filterVehicles() {
+    const type = document.getElementById('vehicle-type').value;
+    const showSold = document.getElementById('show-sold-checkbox').checked;
+
+    let filtered = vehicles;
+
+    if (type !== "all") {
+        filtered = filtered.filter(v => v.type === type);
+    }
+
+    if (!showSold) {
+        filtered = filtered.filter(v => !v.sold);
+    }
+
+    renderVehicles(filtered);
+}
+
+// INITIAL LOAD
+renderVehicles(vehicles);
 
 }
+
 
 
 
