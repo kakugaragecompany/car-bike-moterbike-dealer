@@ -89,7 +89,7 @@ const newsletterForm = document.getElementById('newsletter-form');
 // Initialize the page
 document.addEventListener('DOMContentLoaded', () => {
     // Display all vehicles initially
-    displayVehicles(vehiclesData);
+    displayVehicles(vehicles);
     
     // Setup event listeners
     setupEventListeners();
@@ -617,6 +617,7 @@ function filterVehicles() {
 renderVehicles(vehicles);
 
 }
+
 
 
 
