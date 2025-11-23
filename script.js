@@ -562,9 +562,8 @@ function capitalizeFirstLetter(string) {
     navigator.serviceWorker.register('service-worker.js')
       .catch((err) => console.error('Service worker registration failed:', err));
   }
-  const showSoldCheckbox = document.getElementById('show-sold-checkbox');
-  showSoldCheckbox.addEventListener('change', filterVehicles);
-});
+ const showSoldCheckbox = document.getElementById('show-sold-checkbox');
+showSoldCheckbox?.addEventListener('change', filterVehicles);
 
-
+}
 
