@@ -924,6 +924,46 @@ footer {
 .footer-app .store-icon:hover {
   transform: scale(1.1);
 }
+/* Vehicle Card Buttons */
+.vehicle-actions {
+    margin-top: 10px;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.inquire-btn,
+.details-btn {
+    width: 48%;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    font-size: 14px;
+    border-radius: 6px;
+    font-weight: 600;
+}
+
+/* Inquire Button */
+.inquire-btn {
+    background: #007bff;
+    color: white;
+}
+
+/* View Details Button */
+.details-btn {
+    background: #28a745;
+    color: white;
+}
+
+/* Hover Effects */
+.inquire-btn:hover {
+    background: #0056b3;
+}
+
+.details-btn:hover {
+    background: #1f7a33;
+}
+
 
 
 
