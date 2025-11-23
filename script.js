@@ -182,7 +182,7 @@ document.addEventListener("DOMContentLoaded", () => {
 });
 
 function openDetails(id) {
-    const v = vehicles.find(x => x.id === id);
+    const v = vehicles.find(x => x.id == id);
 
     document.getElementById("detailsImage").src = v.image;
     document.getElementById("detailsName").innerText = v.name;
@@ -202,5 +202,6 @@ function scrollToInquire() {
         behavior: "smooth"
     });
 }
+
 
 
