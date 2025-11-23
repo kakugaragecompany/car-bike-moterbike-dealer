@@ -101,7 +101,7 @@ function displayVehicles(list) {
         const card = document.createElement("div");
         card.className = "vehicle-card";
 
-       card.innerHTML = `
+      card.innerHTML = `
     <div class="vehicle-image">
         <img src="${v.image}" alt="${v.name}">
     </div>
@@ -109,23 +109,24 @@ function displayVehicles(list) {
     <div class="vehicle-details">
         <h3 class="vehicle-title">${v.name}</h3>
         <div class="vehicle-price">${v.price}</div>
+
         <div class="vehicle-features">
             <span>${v.year}</span>
             ${v.transmission ? `<span>${v.transmission}</span>` : ""}
-            ${v.owner ? `<span>${v.owner}</span>` : ""}
-        </div>
-
-        <div class="vehicle-actions">
-            <button class="btn primary inquire-btn" onclick="window.location='#inquire'">
-                Inquire
-            </button>
-
-            <button class="btn secondary details-btn" onclick="openDetails(${v.id})">
-                View Details
-            </button>
         </div>
     </div>
+
+    <div class="vehicle-actions">
+        <button class="btn primary inquire-btn" onclick="window.location='#inquire'">
+            Inquire
+        </button>
+
+        <button class="btn secondary details-btn" onclick="openDetails(${v.id})">
+            View Details
+        </button>
+    </div>
 `;
+
 
 
         vehiclesContainer.appendChild(card);
@@ -196,3 +197,4 @@ function openDetails(id) {
 function closeDetails() {
     document.getElementById("detailsModal").style.display = "none";
 }
+
