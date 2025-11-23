@@ -2,14 +2,74 @@ const scriptURL = "https://api.web3forms.com/submit";
 
 // VEHICLE DATA
 const vehicles = [
-    { id: 1, type: "car", name: "Audi A4 1.8", price: "₹3,00,000", year: 2013, transmission: "Automatic", fuel: "Petrol", owner: "2nd owner", image: "images/KGC_WEBSITE_AUDI.jpg" },
-    { id: 2, type: "car", name: "Hyundai Grand i10", price: "₹3,60,000", year: 2018, image: "images/KGC_WEBSITE_I10.jpg" },
-    { id: 3, type: "car", name: "Maruti WagnoR LXI", price: "₹4,30,000", year: 2022, image: "images/KGC_WEBSITE_WAGNOR.jpg" },
-    { id: 4, type: "car", name: "Hyundai i10", price: "₹1,60,000", year: 2013, transmission: "Manual", image: "images/KGC_WEBSITE_I10_GOURAV.jpg" },
-    { id: 5, type: "bike", name: "Apache 160 RTR", price: "₹49,000", year: 2018, image: "images/KGC_WEBSITE_APACHI.jpg" },
-    { id: 6, type: "bike", name: "Apache 160 4V", price: "₹95,000", year: 2023, image: "images/KGC_WEBSITE_1L_APACHI.jpg" },
-    { id: 7, type: "scooter", name: "Mestro Edge", price: "₹30,000", year: 2017, image: "images/KGC_WEBSITE_MESTRO.jpg" },
-    { id: 8, type: "scooter", name: "TVS Ntorq 125", price: "₹42,000", year: 2020, image: "images/KGC_WEBSITE_NTORQ.jpg" }
+     {
+        id: 1,
+        type: 'car',
+        name: 'Audi A4 1.8',
+        price: '₹3,00,000',
+        year: 2013,
+        transmission: 'Automatic',
+        fuel: 'Petrol',
+        owner: '2nd owner',
+        image: 'images/KGC_WEBSITE_AUDI.jpg'
+    },   
+    {
+        id: 2,
+        type: 'car',
+        name: 'Hyundai Grand i10',
+        price: '₹3,60,000',
+        year: 2018,
+        image: 'images/KGC_WEBSITE_I10.jpg'
+    },
+    {
+        id: 3,
+        type: 'car',
+        name: 'Maruti WagnoR LXI',
+        price: '₹4,30,000',
+        year: 2022,
+        image: 'images/KGC_WEBSITE_WAGNOR.jpg'
+    },
+    {
+        id: 4,
+        type: 'car',
+        name: 'Hyundai i10',
+        price: '₹1,60,000',
+        year: 2013,
+        transmission: 'Manual',
+        image: 'images/KGC_WEBSITE_I10_GOURAV.jpg'
+    },
+    {
+        id: 5,
+        type: 'bike',
+        name: 'apache 160rtr',
+        price: '₹49,000',
+        year: 2018,
+        image: 'images/KGC_WEBSITE_APACHI.jpg'
+    },
+    {
+        id: 6,
+        type: 'bike',
+        name: 'apache 160 4v',
+        price: '₹95,000',
+        year: 2023,
+        image: 'images/KGC_WEBSITE_1L_APACHI.jpg',
+    },
+    {
+        id: 7,
+        type: 'scooter',
+        name: 'Mestro Eage',
+        price: '₹30,000',
+        year: 2017,
+        image: 'images/KGC_WEBSITE_MESTRO.jpg'
+    },
+    {
+        id: 8,
+        type: 'scooter',
+        name: 'TVS Ntorq 125cc caption america edition',
+        price: '₹42,000',
+        year: 2020,
+        image: 'images/KGC_WEBSITE_NTORQ.jpg'
+    },
 ];
 
 // DOM ELEMENTS
@@ -94,3 +154,4 @@ searchBtn.addEventListener("click", filterVehicles);
 searchInput.addEventListener("keyup", (e) => {
     if (e.key === "Enter") filterVehicles();
 });
+
