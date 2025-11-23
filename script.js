@@ -101,19 +101,32 @@ function displayVehicles(list) {
         const card = document.createElement("div");
         card.className = "vehicle-card";
 
-        card.innerHTML = `
-            <div class="vehicle-image">
-                <img src="${v.image}" alt="${v.name}">
-            </div>
-            <div class="vehicle-details">
-                <h3 class="vehicle-title">${v.name}</h3>
-                <div class="vehicle-price">${v.price}</div>
-                <div class="vehicle-features">
-                    <span>${v.year}</span>
-                    ${v.transmission ? `<span>${v.transmission}</span>` : ""}
-                </div>
-            </div>
-        `;
+       card.innerHTML = `
+    <div class="vehicle-image">
+        <img src="${v.image}" alt="${v.name}">
+    </div>
+
+    <div class="vehicle-details">
+        <h3 class="vehicle-title">${v.name}</h3>
+        <div class="vehicle-price">${v.price}</div>
+        <div class="vehicle-features">
+            <span>${v.year}</span>
+            ${v.transmission ? `<span>${v.transmission}</span>` : ""}
+            ${v.owner ? `<span>${v.owner}</span>` : ""}
+        </div>
+
+        <div class="vehicle-actions">
+            <button class="btn primary inquire-btn" onclick="window.location='#inquire'">
+                Inquire
+            </button>
+
+            <button class="btn secondary details-btn" onclick="openDetails(${v.id})">
+                View Details
+            </button>
+        </div>
+    </div>
+`;
+
 
         vehiclesContainer.appendChild(card);
     });
@@ -166,3 +179,20 @@ searchInput.addEventListener("keyup", (e) => {
 document.addEventListener("DOMContentLoaded", () => {
     displayVehicles(vehicles);
 });
+
+function openDetails(id) {
+    const v = vehicles.find(x => x.id === id);
+
+    document.getElementById("detailsImage").src = v.image;
+    document.getElementById("detailsName").innerText = v.name;
+    document.getElementById("detailsPrice").innerText = "Price: " + v.price;
+    document.getElementById("detailsYear").innerText = "Year: " + v.year;
+    document.getElementById("detailsTransmission").innerText = "Transmission: " + (v.transmission || "N/A");
+    document.getElementById("detailsOwner").innerText = "Owner: " + (v.owner || "N/A");
+
+    document.getElementById("detailsModal").style.display = "flex";
+}
+
+function closeDetails() {
+    document.getElementById("detailsModal").style.display = "none";
+}
