@@ -117,7 +117,7 @@ function displayVehicles(list) {
     </div>
 
     <div class="vehicle-actions">
-        <button class="btn primary inquire-btn" onclick="window.location='#inquire'">
+        <button class="btn primary inquire-btn" onclick="scrollToInquire()">
             Inquire
         </button>
 
@@ -197,4 +197,10 @@ function openDetails(id) {
 function closeDetails() {
     document.getElementById("detailsModal").style.display = "none";
 }
+function scrollToInquire() {
+    document.querySelector("#inquire").scrollIntoView({
+        behavior: "smooth"
+    });
+}
+
 
