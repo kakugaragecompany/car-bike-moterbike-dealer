@@ -66,44 +66,50 @@
     </section>
 
     <section id="buy-dream" class="vehicles-section">
-        <h2 class="section-title">Buy Your Dream</h2>
-        <div class="filter-container">
-            <div class="filter">
-                <label for="vehicle-type">Type:</label>
-                <select id="vehicle-type">
-                    <option value="all">All Types</option>
-                    <option value="car">Cars</option>
-                    <option value="bike">Bikes</option>
-                    <option value="scooter">Scooters</option>
-                </select>
-            </div>
-            <div class="vehicles-container" id="vehicles-container">
-    <!-- Vehicle cards will be dynamically added here -->
-</div>
+    <h2 class="section-title">Buy Your Dream</h2>
 
-            <div class="filter">
-                <label for="price-range">Price Range:</label>
-                <select id="price-range">
-                    <option value="all">All Prices</option>
-                    <option value="budget">Budget</option>
-                    <option value="mid">Mid-Range</option>
-                    <option value="premium">Premium</option>
-                </select>
-            </div>
-            <div class="search-box">
-                <input type="text" id="search-input" placeholder="Search vehicles...">
-                <button id="search-btn"><i class="fas fa-search"></i></button>
-            </div>
-            <div class="filter-group">
-                <input type="checkbox" id="show-sold-checkbox">
-                <label for="show-sold-checkbox">Show Sold Vehicles</label>
-            </div>
+    <div class="filter-container">
+
+        <!-- Vehicle Type Filter -->
+        <div class="filter">
+            <label for="vehicle-type">Type:</label>
+            <select id="vehicle-type">
+                <option value="all">All Types</option>
+                <option value="car">Cars</option>
+                <option value="bike">Bikes</option>
+                <option value="scooter">Scooters</option>
+            </select>
         </div>
 
-        <div class="vehicles-container" id="vehicles-container">
-            <!-- Vehicle cards will be dynamically added here -->
+        <!-- Price Filter -->
+        <div class="filter">
+            <label for="price-range">Price Range:</label>
+            <select id="price-range">
+                <option value="all">All Prices</option>
+                <option value="budget">Budget</option>
+                <option value="mid">Mid-Range</option>
+                <option value="premium">Premium</option>
+            </select>
         </div>
-    </section>
+
+        <!-- Search bar -->
+        <div class="search-box">
+            <input type="text" id="search-input" placeholder="Search vehicles...">
+            <button id="search-btn"><i class="fas fa-search"></i></button>
+        </div>
+
+        <!-- Show Sold -->
+        <div class="filter-group">
+            <input type="checkbox" id="show-sold-checkbox">
+            <label for="show-sold-checkbox">Show Sold Vehicles</label>
+        </div>
+    </div>
+
+    <!-- 🚗 VEHICLES WILL LOAD HERE (ONLY ONE CONTAINER) -->
+    <div class="vehicles-container" id="vehicles-container"></div>
+
+</section>
+
 
     <!-- Inquire section: quick contact and get in touch -->
     <section id="inquire" class="contact-section">
