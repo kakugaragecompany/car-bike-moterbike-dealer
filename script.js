@@ -1,75 +1,83 @@
-const scriptURL = "https://api.web3forms.com/submit";
+/* ---------------------------
+   KAKU GARAGE – VEHICLE SYSTEM
+---------------------------- */
 
 // VEHICLE DATA
 const vehicles = [
-     {
+    {
         id: 1,
-        type: 'car',
-        name: 'Audi A4 1.8',
-        price: '₹3,00,000',
+        type: "car",
+        name: "Audi A4 1.8",
+        price: "₹3,00,000",
         year: 2013,
-        transmission: 'Automatic',
-        fuel: 'Petrol',
-        owner: '2nd owner',
-        image: 'images/KGC_WEBSITE_AUDI.jpg'
-    },   
+        transmission: "Automatic",
+        km: "–",
+        image: "images/KGC_WEBSITE_AUDI.jpg"
+    },
     {
         id: 2,
-        type: 'car',
-        name: 'Hyundai Grand i10',
-        price: '₹3,60,000',
+        type: "car",
+        name: "Hyundai Grand i10",
+        price: "₹3,60,000",
         year: 2018,
-        image: 'images/KGC_WEBSITE_I10.jpg'
+        km: "–",
+        image: "images/KGC_WEBSITE_I10.jpg"
     },
     {
         id: 3,
-        type: 'car',
-        name: 'Maruti WagnoR LXI',
-        price: '₹4,30,000',
+        type: "car",
+        name: "Maruti WagonR LXI",
+        price: "₹4,30,000",
         year: 2022,
-        image: 'images/KGC_WEBSITE_WAGNOR.jpg'
+        km: "–",
+        image: "images/KGC_WEBSITE_WAGNOR.jpg"
     },
     {
         id: 4,
-        type: 'car',
-        name: 'Hyundai i10',
-        price: '₹1,60,000',
+        type: "car",
+        name: "Hyundai i10",
+        price: "₹1,60,000",
         year: 2013,
-        transmission: 'Manual',
-        image: 'images/KGC_WEBSITE_I10_GOURAV.jpg'
+        km: "–",
+        transmission: "Manual",
+        image: "images/KGC_WEBSITE_I10_GOURAV.jpg"
     },
     {
         id: 5,
-        type: 'bike',
-        name: 'apache 160rtr',
-        price: '₹49,000',
+        type: "bike",
+        name: "Apache 160 RTR",
+        price: "₹49,000",
         year: 2018,
-        image: 'images/KGC_WEBSITE_APACHI.jpg'
+        km: "–",
+        image: "images/KGC_WEBSITE_APACHI.jpg"
     },
     {
         id: 6,
-        type: 'bike',
-        name: 'apache 160 4v',
-        price: '₹95,000',
+        type: "bike",
+        name: "Apache 160 4V",
+        price: "₹95,000",
         year: 2023,
-        image: 'images/KGC_WEBSITE_1L_APACHI.jpg',
+        km: "–",
+        image: "images/KGC_WEBSITE_1L_APACHI.jpg"
     },
     {
         id: 7,
-        type: 'scooter',
-        name: 'Mestro Eage',
-        price: '₹30,000',
+        type: "scooter",
+        name: "Maestro Edge",
+        price: "₹30,000",
         year: 2017,
-        image: 'images/KGC_WEBSITE_MESTRO.jpg'
+        km: "–",
+        image: "images/KGC_WEBSITE_MESTRO.jpg"
     },
     {
         id: 8,
-        type: 'scooter',
-        name: 'TVS Ntorq 125cc caption america edition',
-        price: '₹42,000',
+        type: "scooter",
+        name: "TVS Ntorq 125cc – Captain America Edition",
+        price: "₹42,000",
         year: 2020,
-        image: 'images/KGC_WEBSITE_NTORQ.jpg'
-    },
+        km: "–",
+        image: "images/KGC_WEBSITE_NTORQ.jpg"
+    }
 ];
 
 // DOM ELEMENTS
@@ -80,12 +88,7 @@ const searchInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-btn");
 const showSoldCheckbox = document.getElementById("show-sold-checkbox");
 
-// WHEN PAGE LOADS → SHOW VEHICLES
-document.addEventListener("DOMContentLoaded", () => {
-    displayVehicles(vehicles);
-});
-
-// DISPLAY VEHICLES FUNCTION
+// DISPLAY VEHICLES
 function displayVehicles(list) {
     vehiclesContainer.innerHTML = "";
 
@@ -116,15 +119,17 @@ function displayVehicles(list) {
     });
 }
 
-// FILTER FUNCTION
+// FILTER VEHICLES FUNCTION
 function filterVehicles() {
     let list = [...vehicles];
 
+    // type filter
     const type = vehicleTypeFilter.value;
     if (type !== "all") {
         list = list.filter(v => v.type === type);
     }
 
+    // price filter
     const priceRange = priceRangeFilter.value;
     if (priceRange !== "all") {
         list = list.filter(v => {
@@ -136,6 +141,7 @@ function filterVehicles() {
         });
     }
 
+    // search filter
     const searchTerm = searchInput.value.toLowerCase();
     if (searchTerm) {
         list = list.filter(v =>
@@ -147,11 +153,16 @@ function filterVehicles() {
     displayVehicles(list);
 }
 
-// FILTER EVENTS
+// EVENT LISTENERS
 vehicleTypeFilter.addEventListener("change", filterVehicles);
 priceRangeFilter.addEventListener("change", filterVehicles);
 searchBtn.addEventListener("click", filterVehicles);
+
 searchInput.addEventListener("keyup", (e) => {
     if (e.key === "Enter") filterVehicles();
 });
 
+// INITIAL LOAD
+document.addEventListener("DOMContentLoaded", () => {
+    displayVehicles(vehicles);
+});
