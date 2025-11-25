@@ -10,57 +10,69 @@
     <meta property="og:type" content="website">
     <meta property="og:url" content="/">
     <meta property="og:image" content="images/kgc-logo.png">
+    <meta http-equiv="Content-Security-Policy" content="default-src 'self'; img-src 'self' data: https:; style-src 'self' https://cdnjs.cloudflare.com 'unsafe-inline'; script-src 'self'; font-src 'self' https://cdnjs.cloudflare.com; connect-src 'self';">
     <title>KAKU GARAGE COMPANY</title>
-
     <link rel="icon" href="images/kgc-logo.png" type="image/png">
     <link rel="stylesheet" href="styles.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <meta name="theme-color" content="#0a7cff">
+    <link rel="manifest" href="manifest.json">
 </head>
 <body>
-
-<!-- HEADER -->
-<header>
-    <div class="logo-container"><h1>KAKU GARAGE COMPANY</h1></div>
-
-    <div class="search-container">
-        <input type="text" placeholder="Search for vehicles..." class="search-bar">
-        <button class="search-button"><i class="fas fa-search"></i></button>
-    </div>
-
-    <nav>
-        <div class="menu-toggle"><i class="fas fa-bars"></i></div>
-        <ul class="main-nav">
-            <li><a href="#home" class="nav-button">Home</a></li>
-            <li><a href="#buy-dream" class="nav-button">Buy Your Dream</a></li>
-            <li><a href="#inquire" class="nav-button">Inquire</a></li>
-            <li><a href="#sell-vehicle" class="nav-button">Sell Your Vehicle</a></li>
-            <li><a href="privacy.html" class="nav-button">Privacy</a></li>
-            <li><a href="coming-soon.html" class="nav-button download-app">Download App</a></li>
-        </ul>
-    </nav>
-</header>
-
-<!-- HERO SECTION -->
-<section id="home" class="hero">
-    <div class="hero-content">
-        <h2>Welcome to KAKU GARAGE COMPANY</h2>
-        <p>Your trusted partner for buying and selling quality vehicles</p>
-        <div class="hero-buttons">
-            <a href="#buy-dream" class="btn primary">Buy Your Dream</a>
-            <a href="#sell-vehicle" class="btn secondary">Sell Your Vehicle</a>
-            <a href="coming-soon.html" class="nav-button download-app">Download App</a>
+    <header>
+        <div class="logo-container">
+            <h1>KAKU GARAGE COMPANY</h1>
         </div>
-    </div>
-</section>
+        
+        <div class="search-container">
+            <input type="text" placeholder="Search for vehicles..." class="search-bar">
+            <button class="search-button"><i class="fas fa-search"></i></button>
+        </div>
+        
+        <nav>
+            <div class="menu-toggle">
+                <i class="fas fa-bars"></i>
+            </div>
+            <ul class="main-nav">
+                <li><a href="#home" class="nav-button">Home</a></li>
+                <li><a href="#buy-dream" class="nav-button">Buy Your Dream</a></li>
+                <li><a href="#inquire" class="nav-button">Inquire</a></li>
+                <li><a href="#sell-vehicle" class="nav-button">Sell Your Vehicle</a></li>
+                <li><a href="privacy.html" class="nav-button">Privacy</a></li>
+                <li>
+                <a href="coming-soon.html" class="nav-button download-app" title="KAKU GARAGE App Coming Soon">
+  Download App
+</a>
 
-<!-- BUY SECTION -->
-<section id="buy-dream" class="vehicles-section">
+                </li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h2>Welcome to KAKU GARAGE COMPANY</h2>
+            <p>Your trusted partner for buying and selling quality vehicles</p>
+            <div class="hero-buttons">
+                <a href="#buy-dream" class="btn primary">Buy Your Dream</a>
+                <a href="#sell-vehicle" class="btn secondary">Sell Your Vehicle</a>
+              <a href="coming-soon.html" class="nav-button download-app" title="KAKU GARAGE App Coming Soon">
+  Download App
+</a>
+ 
+            </div>
+        </div>
+    </section>
+
+    <section id="buy-dream" class="vehicles-section">
     <h2 class="section-title">Buy Your Dream</h2>
 
     <div class="filter-container">
+
+        <!-- Vehicle Type Filter -->
         <div class="filter">
-            <label>Type:</label>
+            <label for="vehicle-type">Type:</label>
             <select id="vehicle-type">
                 <option value="all">All Types</option>
                 <option value="car">Cars</option>
@@ -69,8 +81,9 @@
             </select>
         </div>
 
+        <!-- Price Filter -->
         <div class="filter">
-            <label>Price Range:</label>
+            <label for="price-range">Price Range:</label>
             <select id="price-range">
                 <option value="all">All Prices</option>
                 <option value="budget">Budget</option>
@@ -79,128 +92,336 @@
             </select>
         </div>
 
+        <!-- Search bar -->
         <div class="search-box">
             <input type="text" id="search-input" placeholder="Search vehicles...">
             <button id="search-btn"><i class="fas fa-search"></i></button>
         </div>
 
+        <!-- Show Sold -->
         <div class="filter-group">
             <input type="checkbox" id="show-sold-checkbox">
             <label for="show-sold-checkbox">Show Sold Vehicles</label>
         </div>
     </div>
 
+    <!-- 🚗 VEHICLES WILL LOAD HERE (ONLY ONE CONTAINER) -->
     <div class="vehicles-container" id="vehicles-container"></div>
+
 </section>
 
-<!-- INQUIRE SECTION -->
-<section id="inquire" class="contact-section">
-    <h2 class="section-title">Inquire / Get in Touch</h2>
-    <div class="contact-container">
-        <div class="contact-info">
-            <h3>Get in touch</h3>
-            <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> DWARKA SEC 3 NEW DELHI</p>
-            <p><i class="fas fa-phone"></i> <strong>Phone:</strong> (+91) 93546-11065</p>
-            <p><i class="fas fa-envelope"></i> <strong>Email:</strong> kakugarage@gmail.com</p>
-            <a href="#contact" class="btn primary">Send us a message</a>
+
+    <!-- Inquire section: quick contact and get in touch -->
+    <section id="inquire" class="contact-section">
+        <h2 class="section-title">Inquire / Get in Touch</h2>
+        <div class="contact-container">
+            <div class="contact-info">
+                <h3>Get in touch</h3>
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> DWARKA SEC 3 NEW DELHI</p>
+                <p><i class="fas fa-phone"></i> <strong>Phone:</strong> (+91) 93546-11065</p>
+                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> kakugarage@gmail.com</p>
+                <div class="business-hours">
+                    <p><strong>Monday - Saturday:</strong> 9:00 AM - 6:00 PM</p>
+                    <p><strong>Sunday:</strong> 10:00 AM - 4:00 PM</p>
+                </div>
+                <a href="#contact" class="btn primary">Send us a message</a>
+            </div>
+            <div class="contact-form">
+               <h3>Quick Inquiry</h3>
+
+<form id="quickInquiryForm" action="https://api.web3forms.com/submit" method="POST">
+    <input type="hidden" name="access_key" value="08941a5d-465d-4b29-b7c8-21e087921eae">
+    <input type="hidden" name="subject" value="New Quick Inquiry Message">
+    <input type="hidden" name="from_name" value="Kaku Garage Website">
+
+    <!-- Honeypot -->
+    <input type="text" name="botcheck" style="display:none">
+
+    <div class="form-group">
+        <label for="qi-name">Name</label>
+        <input type="text" id="qi-name" name="name" required>
+    </div>
+
+    <div class="form-group">
+        <label for="qi-phone">Phone</label>
+        <input type="tel" id="qi-phone" name="phone">
+    </div>
+
+    <div class="form-group">
+        <label for="qi-message">Message</label>
+        <textarea id="qi-message" name="message" rows="4" required></textarea>
+    </div>
+
+    <button type="submit" class="btn btn-primary">Send Inquiry</button>
+
+</form>
+
+                
+            </div>
         </div>
+    </section>
 
-        <div class="contact-form">
-            <h3>Quick Inquiry</h3>
-            <form id="quickInquiryForm" action="https://api.web3forms.com/submit" method="POST">
-                <input type="hidden" name="access_key" value="08941a5d-465d-4b29-b7c8-21e087921eae">
-                <input type="hidden" name="subject" value="New Quick Inquiry Message">
-                <input type="hidden" name="from_name" value="Kaku Garage Website">
+    <section id="services" class="services-section">
+        <h2 class="section-title">Our Services</h2>
+        <div class="services-container">
+            <div class="service-card">
+                <i class="fas fa-car-alt fa-3x"></i>
+                <h3>Vehicle Sales</h3>
+                <p>Browse our extensive collection of new and pre-owned cars, bikes, and scooters at competitive prices.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-tools fa-3x"></i>
+                <h3>Repair & Maintenance</h3>
+                <p>Professional repair and maintenance services by certified mechanics using genuine parts.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-oil-can fa-3x"></i>
+                <h3>Service Packages</h3>
+                <p>Regular maintenance packages to keep your vehicle in optimal condition with extended warranty.</p>
+            </div>
+            <div class="service-card">
+                <i class="fas fa-money-check-alt fa-3x"></i>
+                <h3>Financing Options</h3>
+                <p>Flexible financing solutions with competitive interest rates and easy approval process.</p>
+            </div>
+        </div>
+    </section>
 
-                <div class="form-group"><label>Name</label><input type="text" name="name" required></div>
-                <div class="form-group"><label>Phone</label><input type="tel" name="phone"></div>
-                <div class="form-group"><label>Message</label><textarea name="message" required></textarea></div>
+    <section id="offers" class="offers-section">
+        <h2 class="section-title">Special Offers</h2>
+        <div class="offers-container">
+            <div class="offer-card">
+                <div class="offer-badge">New</div>
+                <h3>Summer Sale</h3>
+                <p>Get up to 15% off on selected bikes and scooters!</p>
+                <a href="#contact" class="btn primary">Inquire Now</a>
+            </div>
+            <div class="offer-card">
+                <div class="offer-badge">Limited</div>
+                <h3>Finance Options</h3>
+                <p>0% interest for 6 months on premium vehicles</p>
+                <a href="#contact" class="btn primary">Learn More</a>
+            </div>
+            <div class="offer-card">
+                <div class="offer-badge">Popular</div>
+                <h3>Trade-In Bonus</h3>
+                <p>Extra ₹10,000 when you trade in your old vehicle</p>
+                <a href="#contact" class="btn primary">Get Details</a>
+            </div>
+        </div>
+    </section>
 
-                <button type="submit" class="btn btn-primary">Send Inquiry</button>
+    <section id="about" class="about-section">
+        <h2 class="section-title">About Us</h2>
+        <div class="about-content">
+            <div class="about-image">
+                <img src="images/showroom2.jpg (2).png" alt="Kaku Garage Showroom" class="about-image">
+            </div>
+            <div class="about-text">
+                <h3>Welcome to KAKU GARAGE COMPANY</h3>
+                <p>We are a premier auto dealership with over 15 years of experience in the industry. Our mission is to provide high-quality vehicles at competitive prices with exceptional customer service.</p>
+                <p>Our team of experts is dedicated to helping you find the perfect vehicle that meets your needs and budget. We offer a wide range of cars, motorcycles, and scooters from top manufacturers.</p>
+                <p>Visit our showroom today and experience the difference of working with a dealership that puts customers first!</p>
+            </div>
+        </div>
+    </section>
+    
+    <section id="testimonials" class="testimonials-section">
+        <h2 class="section-title">Customer Testimonials</h2>
+        <div class="testimonials-container">
+            <div class="testimonial-card">
+                <div class="testimonial-rating">★★★★★</div>
+                <p class="testimonial-text">"KAKU GARAGE COMPANY provided exceptional service when I purchased my new car. The staff was knowledgeable and helped me find exactly what I needed within my budget."</p>
+                <div class="testimonial-author">- John Smith</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">★★★★★</div>
+                <p class="testimonial-text">"I've been bringing my vehicles to KAKU GARAGE for maintenance for years. Their mechanics are professional and always do quality work. Highly recommended!"</p>
+                <div class="testimonial-author">- Sarah Johnson</div>
+            </div>
+            <div class="testimonial-card">
+                <div class="testimonial-rating">★★★★☆</div>
+                <p class="testimonial-text">"The financing options offered by KAKU GARAGE made it possible for me to afford my dream bike. The process was smooth and transparent from start to finish."</p>
+                <div class="testimonial-author">- Michael Chen</div>
+            </div>
+        </div>
+    </section>
+
+    <section id="sell-vehicle" class="sell-vehicle-section">
+        <h2 class="section-title">Sell Your Vehicle To Us</h2>
+        <div class="form-container">
+            <form id="sellVehicleForm">
+                <!-- Honeypot field to prevent automated spam submissions -->
+                <input type="text" id="sell-website" name="sell-website" autocomplete="off" tabindex="-1" style="display:none">
+                <h3>Personal Details</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="seller-name">Full Name</label>
+                        <input type="text" id="seller-name" name="seller-name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="seller-email">Email Address</label>
+                        <input type="email" id="seller-email" name="seller-email" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="seller-phone">Phone Number</label>
+                        <input type="tel" id="seller-phone" name="seller-phone" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="seller-location">Location</label>
+                        <input type="text" id="seller-location" name="seller-location" required>
+                    </div>
+                </div>
+                
+                <h3>Vehicle Details</h3>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="vehicle-make">Make</label>
+                        <input type="text" id="vehicle-make" name="vehicle-make" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicle-model">Model</label>
+                        <input type="text" id="vehicle-model" name="vehicle-model" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="vehicle-year">Year</label>
+                        <input type="number" id="vehicle-year" name="vehicle-year" min="1900" max="2099" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicle-mileage">Mileage</label>
+                        <input type="number" id="vehicle-mileage" name="vehicle-mileage" required>
+                    </div>
+                </div>
+                <div class="form-row">
+                    <div class="form-group">
+                        <label for="vehicle-condition">Condition</label>
+                        <select id="vehicle-condition" name="vehicle-condition" required>
+                            <option value="">Select Condition</option>
+                            <option value="excellent">Excellent</option>
+                            <option value="good">Good</option>
+                            <option value="fair">Fair</option>
+                            <option value="poor">Poor</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="vehicle-photos">Upload Photos</label>
+                        <input type="file" id="vehicle-photos" name="vehicle-photos" multiple>
+                    </div>
+                </div>
+                <div class="form-group">
+                    <label for="vehicle-description">Additional Details</label>
+                    <textarea id="vehicle-description" name="vehicle-description" rows="4"></textarea>
+                </div>
+                <button type="submit" class="btn primary submit-btn">Submit Vehicle Details</button>
             </form>
         </div>
-    </div>
-</section>
+    </section>
 
-<!-- SERVICES -->
-<section id="services" class="services-section">
-    <h2 class="section-title">Our Services</h2>
-    <div class="services-container">
-        <div class="service-card"><i class="fas fa-car-alt fa-3x"></i><h3>Vehicle Sales</h3></div>
-        <div class="service-card"><i class="fas fa-tools fa-3x"></i><h3>Repair & Maintenance</h3></div>
-        <div class="service-card"><i class="fas fa-oil-can fa-3x"></i><h3>Service Packages</h3></div>
-        <div class="service-card"><i class="fas fa-money-check-alt fa-3x"></i><h3>Financing Options</h3></div>
-    </div>
-</section>
-
-<!-- OFFERS -->
-<section id="offers" class="offers-section">
-    <h2 class="section-title">Special Offers</h2>
-    <div class="offers-container">
-        <div class="offer-card"><div class="offer-badge">New</div><h3>Summer Sale</h3></div>
-        <div class="offer-card"><div class="offer-badge">Limited</div><h3>Finance Options</h3></div>
-        <div class="offer-card"><div class="offer-badge">Popular</div><h3>Trade-In Bonus</h3></div>
-    </div>
-</section>
-
-<!-- ABOUT -->
-<section id="about" class="about-section">
-    <h2 class="section-title">About Us</h2>
-    <div class="about-content">
-        <div class="about-image"><img src="images/showroom2.jpg" alt="Showroom"></div>
-        <div class="about-text"><h3>Welcome to KAKU GARAGE COMPANY</h3></div>
-    </div>
-</section>
-
-<!-- TESTIMONIALS -->
-<section id="testimonials" class="testimonials-section">
-    <h2 class="section-title">Customer Testimonials</h2>
-    <div class="testimonials-container">
-        <div class="testimonial-card">★★★★★</div>
-        <div class="testimonial-card">★★★★★</div>
-        <div class="testimonial-card">★★★★☆</div>
-    </div>
-</section>
-
-<!-- SELL VEHICLE -->
-<section id="sell-vehicle" class="sell-vehicle-section">
-    <h2 class="section-title">Sell Your Vehicle To Us</h2>
-
-    <form id="sellVehicleForm">
-        <div class="form-row">
-            <div class="form-group"><label>Full Name</label><input type="text" required></div>
-            <div class="form-group"><label>Email</label><input type="email" required></div>
+    <section id="contact" class="contact-section">
+        <h2 class="section-title">Contact Us</h2>
+        <div class="contact-container">
+            <div class="contact-form">
+                <h3>Send us a message</h3>
+                <form id="contactForm">
+                    <!-- Honeypot field to prevent automated spam submissions -->
+                    <input type="text" id="website" name="website" autocomplete="off" tabindex="-1" style="display:none">
+                    <div class="form-group">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone">
+                    </div>
+                    <div class="form-group">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" rows="5" required></textarea>
+                    </div>
+                    <button type="submit" class="btn primary">Send Message</button>
+                </form>
+            </div>
+            <div class="contact-info">
+                <h3>Get in touch</h3>
+                <p><i class="fas fa-map-marker-alt"></i> <strong>Address:</strong> DWARKA SEC 3 NEW DELHI</p>
+                <p><i class="fas fa-phone"></i> <strong>Phone:</strong> (+91) 93546-11065</p>
+                <p><i class="fas fa-envelope"></i> <strong>Email:</strong> kakugarage@gmail.com</p>
+                
+                <h3 class="business-hours-title">Business Hours</h3>
+                <div class="business-hours">
+                    <p><strong>Monday - Saturday:</strong> 9:00 AM - 6:00 PM</p>
+                    <p><strong>Sunday:</strong> 10:00 AM - 4:00 PM</p>
+                </div>
+                
+                <div class="social-links">
+                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
+                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
+                </div>
+            </div>
         </div>
+    </section>
 
-        <div class="form-row">
-            <div class="form-group"><label>Phone</label><input type="tel" required></div>
-            <div class="form-group"><label>Location</label><input type="text" required></div>
-        </div>
+    <footer>
+        <div class="footer-content">
+            <div class="footer-logo">
+                <h2>KAKU GARAGE COMPANY</h2>
+                <p>Your trusted partner for quality vehicles</p>
+            </div>
+            <div class="footer-links">
+                <h3>Quick Links</h3>
+                <ul>
+                    <li><a href="#home">Home</a></li>
+                    <li><a href="#buy-dream">Buy Your Dream</a></li>
+                    <li><a href="#inquire">Inquire</a></li>
+                    <li><a href="#sell-vehicle">Sell Your Vehicle</a></li>
+                    <li><a href="#contact">Contact</a></li>
+                </ul>
+            </div>
+            <div class="footer-newsletter">
+                <h3>Stay Updated</h3>
+                <p>Subscribe to our newsletter for the latest offers and updates</p>
+                <form id="newsletter-form">
+                    <input type="email" placeholder="Your Email Address" required>
+                    <button type="submit" class="btn primary">Subscribe</button>
+                </form>
+                
+              <div class="footer-app">
+                    <h3>Get the App</h3>
+              <p>
+                   📱 Coming soon on
+                      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
+                         alt="Google Play" class="store-icon">
+              and
+                      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" 
+                        alt="App Store" class="store-icon">
+          </p>
+      
+                
 
-        <button type="submit" class="btn primary submit-btn">Submit Vehicle Details</button>
-    </form>
-</section>
-
-<!-- CONTACT -->
-<section id="contact" class="contact-section">
-    <h2 class="section-title">Contact Us</h2>
-</section>
-
-<!-- FOOTER -->
-<footer>
-    <h2>KAKU GARAGE COMPANY</h2>
-    <p>Your trusted partner for quality vehicles</p>
-</footer>
-
-<!-- MODAL -->
+<!-- Vehicle Details Popup (PUT THIS HERE) -->
 <div id="detailsModal" class="details-modal">
     <div class="details-content">
         <span class="close-btn" onclick="closeDetails()">&times;</span>
         <img id="detailsImage" src="">
         <h2 id="detailsName"></h2>
+        <p id="detailsPrice"></p>
+        <p id="detailsYear"></p>
+        <p id="detailsTransmission"></p>
+        <p id="detailsOwner"></p>
     </div>
 </div>
 
+<!-- Load Script at the VERY END -->
 <script src="script.js"></script>
+
 </body>
 </html>
