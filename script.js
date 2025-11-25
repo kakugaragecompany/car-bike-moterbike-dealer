@@ -1,5 +1,5 @@
 /* ---------------------------
-   KAKU GARAGE – VEHICLE SYSTEM
+   KAKU GARAGE – VEHICLE SYSTEM (FINAL FIXED)
 ---------------------------- */
 
 // VEHICLE DATA
@@ -86,7 +86,6 @@ const vehicleTypeFilter = document.getElementById("vehicle-type");
 const priceRangeFilter = document.getElementById("price-range");
 const searchInput = document.getElementById("search-input");
 const searchBtn = document.getElementById("search-btn");
-const showSoldCheckbox = document.getElementById("show-sold-checkbox");
 
 // DISPLAY VEHICLES
 function displayVehicles(list) {
@@ -101,49 +100,43 @@ function displayVehicles(list) {
         const card = document.createElement("div");
         card.className = "vehicle-card";
 
-      card.innerHTML = `
-    <div class="vehicle-image">
-        <img src="${v.image}" alt="${v.name}">
-    </div>
+        card.innerHTML = `
+            <div class="vehicle-image">
+                <img src="${v.image}" alt="${v.name}">
+            </div>
 
-    <div class="vehicle-details">
-        <h3 class="vehicle-title">${v.name}</h3>
-        <div class="vehicle-price">${v.price}</div>
+            <div class="vehicle-details">
+                <h3 class="vehicle-title">${v.name}</h3>
+                <div class="vehicle-price">${v.price}</div>
 
-        <div class="vehicle-features">
-            <span>${v.year}</span>
-            ${v.transmission ? `<span>${v.transmission}</span>` : ""}
-        </div>
-    </div>
+                <div class="vehicle-features">
+                    <span>${v.year}</span>
+                    ${v.transmission ? `<span>${v.transmission}</span>` : ""}
+                </div>
+            </div>
 
-    <div class="vehicle-actions">
-        <button class="btn primary inquire-btn" onclick="scrollToInquire()">
-            Inquire
-        </button>
+            <div class="vehicle-actions">
+                <button class="btn primary inquire-btn" onclick="scrollToInquire()">
+                    Inquire
+                </button>
 
-        <button class="btn secondary details-btn" onclick="openDetails(${v.id})">
-            View Details
-        </button>
-    </div>
-`;
-
-
+                <button class="btn secondary details-btn" onclick="openDetails(${v.id})">
+                    View Details
+                </button>
+            </div>
+        `;
 
         vehiclesContainer.appendChild(card);
     });
 }
 
-// FILTER VEHICLES FUNCTION
+// FILTER FUNCTION
 function filterVehicles() {
     let list = [...vehicles];
 
-    // type filter
     const type = vehicleTypeFilter.value;
-    if (type !== "all") {
-        list = list.filter(v => v.type === type);
-    }
+    if (type !== "all") list = list.filter(v => v.type === type);
 
-    // price filter
     const priceRange = priceRangeFilter.value;
     if (priceRange !== "all") {
         list = list.filter(v => {
@@ -155,7 +148,6 @@ function filterVehicles() {
         });
     }
 
-    // search filter
     const searchTerm = searchInput.value.toLowerCase();
     if (searchTerm) {
         list = list.filter(v =>
@@ -167,7 +159,7 @@ function filterVehicles() {
     displayVehicles(list);
 }
 
-// EVENT LISTENERS
+// EVENTS
 vehicleTypeFilter.addEventListener("change", filterVehicles);
 priceRangeFilter.addEventListener("change", filterVehicles);
 searchBtn.addEventListener("click", filterVehicles);
@@ -181,6 +173,7 @@ document.addEventListener("DOMContentLoaded", () => {
     displayVehicles(vehicles);
 });
 
+// OPEN DETAILS MODAL
 function openDetails(id) {
     const v = vehicles.find(x => x.id == id);
 
@@ -194,14 +187,14 @@ function openDetails(id) {
     document.getElementById("detailsModal").style.display = "flex";
 }
 
+// CLOSE DETAILS MODAL
 function closeDetails() {
     document.getElementById("detailsModal").style.display = "none";
 }
+
+// SCROLL TO INQUIRE
 function scrollToInquire() {
     document.querySelector("#inquire").scrollIntoView({
         behavior: "smooth"
     });
 }
-
-
-
