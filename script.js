@@ -198,3 +198,8 @@ function scrollToInquire() {
         behavior: "smooth"
     });
 }
+
+// MAKE FUNCTIONS GLOBAL (IMPORTANT FOR BUTTONS)
+window.openDetails = openDetails;
+window.closeDetails = closeDetails;
+window.scrollToInquire = scrollToInquire;
