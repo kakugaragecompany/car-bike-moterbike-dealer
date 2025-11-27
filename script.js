@@ -1,6 +1,4 @@
-document.addEventListener("DOMContentLoaded", function () {
-
-    // VEHICLE DATA
+  // VEHICLE DATA
     const vehicles = [
     {
         id: 1,
@@ -205,5 +203,6 @@ window.openDetails = openDetails;
 window.closeDetails = closeDetails;
 window.scrollToInquire = scrollToInquire;
 });
+
 
 
