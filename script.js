@@ -199,7 +199,42 @@ function scrollToInquire() {
     });
 }
 
-// MAKE FUNCTIONS GLOBAL (IMPORTANT FOR BUTTONS)
+// ------- BUTTON FIX ADDON (PASTE AT END ONLY) --------
+
+// Global access
 window.openDetails = openDetails;
 window.closeDetails = closeDetails;
 window.scrollToInquire = scrollToInquire;
+
+// Incase script ran before DOM
+document.addEventListener("DOMContentLoaded", function () {
+    console.log("Buttons Fix Loaded ✅");
+});
+
+// Safety check
+function openDetails(id){
+    const v = vehicles.find(x => x.id == id);
+    if(!v){
+        alert("Vehicle not found");
+        return;
+    }
+
+    document.getElementById("detailsImage").src = v.image;
+    document.getElementById("detailsName").innerText = v.name;
+    document.getElementById("detailsPrice").innerText = "Price: " + v.price;
+    document.getElementById("detailsYear").innerText = "Year: " + v.year;
+    document.getElementById("detailsTransmission").innerText = "Transmission: " + (v.transmission || "N/A");
+    document.getElementById("detailsOwner").innerText = "Owner: " + (v.owner || "N/A");
+
+    document.getElementById("detailsModal").style.display = "flex";
+}
+
+function closeDetails(){
+    document.getElementById("detailsModal").style.display = "none";
+}
+
+function scrollToInquire(){
+    document.querySelector("#inquire").scrollIntoView({behavior:"smooth"});
+}
+});
+
