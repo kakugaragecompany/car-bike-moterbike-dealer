@@ -1,9 +1,7 @@
-/* ---------------------------
-   KAKU GARAGE – VEHICLE SYSTEM (FINAL FIXED)
----------------------------- */
+document.addEventListener("DOMContentLoaded", function () {
 
-// VEHICLE DATA
-const vehicles = [
+    // VEHICLE DATA
+    const vehicles = [
     {
         id: 1,
         type: "car",
@@ -203,3 +201,5 @@ function scrollToInquire() {
 window.openDetails = openDetails;
 window.closeDetails = closeDetails;
 window.scrollToInquire = scrollToInquire;
+});
+
