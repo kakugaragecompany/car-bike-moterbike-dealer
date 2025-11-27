@@ -192,9 +192,12 @@ function closeDetails() {
 
 // SCROLL TO INQUIRE
 function scrollToInquire() {
-    document.querySelector("#inquire").scrollIntoView({
-        behavior: "smooth"
-    });
+   const section = document.getElementById("inquire");
+   if (section) {
+      section.scrollIntoView({ behavior: "smooth" });
+   } else {
+      alert("Inquire section not found!");
+   }
 }
 
 // MAKE FUNCTIONS GLOBAL (IMPORTANT FOR BUTTONS)
@@ -202,4 +205,5 @@ window.openDetails = openDetails;
 window.closeDetails = closeDetails;
 window.scrollToInquire = scrollToInquire;
 });
+
 
