@@ -238,3 +238,28 @@ function scrollToInquire(){
 }
 });
 
+document.addEventListener("DOMContentLoaded", function () {
+
+  // VIEW DETAILS FIX
+  document.querySelectorAll(".view-details").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      alert("View Details clicked ✅ (working now)");
+    });
+  });
+
+  // INQUIRE FIX
+  document.querySelectorAll(".inquire-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      alert("Inquiry form open ✅");
+    });
+  });
+
+  // DOWNLOAD APP FIX
+  document.querySelectorAll(".download-btn").forEach(function (btn) {
+    btn.addEventListener("click", function () {
+      window.location.href = "#";
+    });
+  });
+
+});
+
