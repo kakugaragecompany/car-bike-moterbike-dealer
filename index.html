@@ -251,11 +251,12 @@
                  <h2 class="section-title">Sell Your Vehicle To Us</h2>
                 <div class="form-container">
              <!-- START: New Web3Forms Form -->
-           <form action="https://api.web3forms.com/submit" method="POST" id="newForm">
-            <input type="hidden" name="access_key" value="0850228d-d0ab-4c0d-939a-a59a0dfa4ee5">
-               <button type="submit">Submit</button>
-                   </form>
-                   <div id="newFormResponse"></div>
+                <form id="newForm" action="https://api.web3forms.com/submit" method="POST">
+                 <input type="hidden" name="access_key" value="0850228d-d0ab-4c0d-939a-a59a0dfa4ee5">
+                 <!-- Tumhare original fields jaise Full Name, Email, Phone, Vehicle Details, etc. -->
+                 <button type="submit">Submit Vehicle Details</button>
+                 </form>
+                 <div id="newFormResponse"></div>
                   <!-- END: New Web3Forms Form -->
 
                 <!-- Honeypot field to prevent automated spam submissions -->
