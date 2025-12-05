@@ -243,30 +243,25 @@ document.addEventListener("DOMContentLoaded", function () {
     const newForm = document.getElementById('newForm');
     const responseDiv = document.getElementById('newFormResponse');
 
-    if (newForm) { // safety check
+    if (newForm) {
         newForm.addEventListener('submit', async (e) => {
             e.preventDefault();
-            
             const formData = new FormData(newForm);
-            
+
             const response = await fetch(newForm.action, {
                 method: 'POST',
                 body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
+                headers: { 'Accept': 'application/json' }
             });
-            
+
             if (response.ok) {
-                responseDiv.innerHTML = "<p>Form submitted successfully!</p>";
+                responseDiv.innerHTML = "<p style='color:green;'>Form submitted successfully!</p>";
                 newForm.reset();
             } else {
-                responseDiv.innerHTML = "<p>Something went wrong. Try again.</p>";
+                responseDiv.innerHTML = "<p style='color:red;'>Something went wrong. Try again.</p>";
             }
         });
     }
 });
-
-
 
 
