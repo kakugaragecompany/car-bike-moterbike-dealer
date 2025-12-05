@@ -241,4 +241,30 @@ document.addEventListener("DOMContentLoaded", function () {
 
 });
 
+<script>
+const newForm = document.getElementById('newForm');
+const responseDiv = document.getElementById('newFormResponse');
+
+newForm.addEventListener('submit', async (e) => {
+  e.preventDefault();
+  
+  const formData = new FormData(newForm);
+  
+  const response = await fetch(newForm.action, {
+    method: 'POST',
+    body: formData,
+    headers: {
+      'Accept': 'application/json'
+    }
+  });
+  
+  if (response.ok) {
+    responseDiv.innerHTML = "<p>Form submitted successfully!</p>";
+    newForm.reset();
+  } else {
+    responseDiv.innerHTML = "<p>Something went wrong. Try again.</p>";
+  }
+});
+</script>
+
 
