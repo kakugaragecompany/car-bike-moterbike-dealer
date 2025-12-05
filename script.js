@@ -237,34 +237,36 @@ function scrollToInquire(){
     document.querySelector("#inquire").scrollIntoView({behavior:"smooth"});
 }
 
+// ------- SELL VEHICLE FORM SUBMISSION (WEB3FORMS) --------
+
 document.addEventListener("DOMContentLoaded", function () {
+    const newForm = document.getElementById('newForm');
+    const responseDiv = document.getElementById('newFormResponse');
 
-});
-
-<script>
-const newForm = document.getElementById('newForm');
-const responseDiv = document.getElementById('newFormResponse');
-
-newForm.addEventListener('submit', async (e) => {
-  e.preventDefault();
-  
-  const formData = new FormData(newForm);
-  
-  const response = await fetch(newForm.action, {
-    method: 'POST',
-    body: formData,
-    headers: {
-      'Accept': 'application/json'
+    if (newForm) { // safety check
+        newForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const formData = new FormData(newForm);
+            
+            const response = await fetch(newForm.action, {
+                method: 'POST',
+                body: formData,
+                headers: {
+                    'Accept': 'application/json'
+                }
+            });
+            
+            if (response.ok) {
+                responseDiv.innerHTML = "<p>Form submitted successfully!</p>";
+                newForm.reset();
+            } else {
+                responseDiv.innerHTML = "<p>Something went wrong. Try again.</p>";
+            }
+        });
     }
-  });
-  
-  if (response.ok) {
-    responseDiv.innerHTML = "<p>Form submitted successfully!</p>";
-    newForm.reset();
-  } else {
-    responseDiv.innerHTML = "<p>Something went wrong. Try again.</p>";
-  }
 });
-</script>
+
+
 
 
