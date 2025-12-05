@@ -247,10 +247,27 @@
         </div>
     </section>
 
-    <section id="sell-vehicle" class="sell-vehicle-section">
-        <h2 class="section-title">Sell Your Vehicle To Us</h2>
-        <div class="form-container">
-            <form id="sellVehicleForm">
+           <section id="sell-vehicle" class="sell-vehicle-section">
+                 <h2 class="section-title">Sell Your Vehicle To Us</h2>
+                <div class="form-container">
+             <!-- START: New Web3Forms Form -->
+           <form action="https://api.web3forms.com/submit" method="POST" id="newForm">
+            <input type="hidden" name="access_key" value="0850228d-d0ab-4c0d-939a-a59a0dfa4ee5">
+            
+            <label for="name">Name</label>
+            <input type="text" name="name" id="name" required>
+            
+            <label for="email">Email</label>
+            <input type="email" name="email" id="email" required>
+            
+            <label for="message">Vehicle Details</label>
+            <textarea name="message" id="message" placeholder="Car/ Bike details, Price etc." required></textarea>
+            
+            <button type="submit">Submit</button>
+                   </form>
+                   <div id="newFormResponse"></div>
+                  <!-- END: New Web3Forms Form -->
+
                 <!-- Honeypot field to prevent automated spam submissions -->
                 <input type="text" id="sell-website" name="sell-website" autocomplete="off" tabindex="-1" style="display:none">
                 <h3>Personal Details</h3>
