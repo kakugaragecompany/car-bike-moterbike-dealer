@@ -14,9 +14,8 @@
     <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline' https://cdn.jsdelivr.net https://unpkg.com;">
     <title>KAKU GARAGE COMPANY</title>
     <link rel="icon" href="images/kgc-logo.png" type="image/png">
-    <link rel="stylesheet" href="styles.css">
+    <link rel="preload" href="styles.css" as="style" onload="this.rel='stylesheet'">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.4/css/all.min.css">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <meta name="theme-color" content="#0a7cff">
     <link rel="manifest" href="manifest.json">
 </head>
@@ -28,13 +27,15 @@
         
         <div class="search-container">
             <input type="text" placeholder="Search for vehicles..." class="search-bar">
-            <button class="search-button"><i class="fas fa-search"></i></button>
+            <button class="search-button" aria-label="Search Vehicles">
+            <i class="fas fa-search"></i>
+            </button>
         </div>
         
         <nav>
-            <div class="menu-toggle">
-                <i class="fas fa-bars"></i>
-            </div>
+            <button class="menu-toggle" aria-label="Open Menu">
+            <i class="fas fa-bars"></i>
+        </button>
             <ul class="main-nav">
                 <li><a href="#home" class="nav-button">Home</a></li>
                 <li><a href="#buy-dream" class="nav-button">Buy Your Dream</a></li>
@@ -368,11 +369,22 @@
                 </div>
                 
                 <div class="social-links">
-                    <a href="#" class="social-link"><i class="fab fa-facebook-f"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-                    <a href="#" class="social-link"><i class="fab fa-youtube"></i></a>
-                </div>
+    <a href="#" class="social-link" aria-label="Visit our Facebook page">
+        <i class="fab fa-facebook-f"></i>
+    </a>
+
+    <a href="#" class="social-link" aria-label="Visit our Twitter page">
+        <i class="fab fa-twitter"></i>
+    </a>
+
+    <a href="#" class="social-link" aria-label="Visit our Instagram page">
+        <i class="fab fa-instagram"></i>
+    </a>
+
+    <a href="#" class="social-link" aria-label="Visit our YouTube channel">
+        <i class="fab fa-youtube"></i>
+    </a>
+</div>
             </div>
         </div>
     </section>
@@ -403,14 +415,25 @@
                 
               <div class="footer-app">
                     <h3>Get the App</h3>
-              <p>
-                   📱 Coming soon on
-                      <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg" 
-                         alt="Google Play" class="store-icon">
-              and
-                      <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg" 
-                        alt="App Store" class="store-icon">
-          </p>
+<p>
+   📱 Coming soon on
+
+   <img src="https://upload.wikimedia.org/wikipedia/commons/7/78/Google_Play_Store_badge_EN.svg"
+        alt="Download on Google Play"
+        class="store-icon"
+        loading="lazy"
+        width="140"
+        height="42">
+
+   and
+
+   <img src="https://developer.apple.com/assets/elements/badges/download-on-the-app-store.svg"
+        alt="Download on the App Store"
+        class="store-icon"
+        loading="lazy"
+        width="140"
+        height="42">
+</p>
       
                 
 
@@ -428,7 +451,7 @@
 </div>
 
 <!-- Load Script at the VERY END -->
-<script src="script.js"></script>
+<script src="script.js" defer></script>
 
 </body>
 </html>
