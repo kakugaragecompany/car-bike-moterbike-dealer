@@ -101,9 +101,9 @@ function displayVehicles(list) {
         card.className = "vehicle-card";
 
         card.innerHTML = `
-            <div class="vehicle-image">
-                <img src="${v.image}" alt="${v.name}">
-            </div>
+    <div class="vehicle-image">
+        <img src="${v.image}" alt="${v.name}" loading="lazy" width="300" height="200">
+    </div>
 
             <div class="vehicle-details">
                 <h3 class="vehicle-title">${v.name}</h3>
